@@ -117,6 +117,7 @@ class DroidMaster(object):
         for i in range(self.device_pool_capacity):
             adb_port = Device(device_serial="").get_random_port()
             device_serial = "%s:%s" % (self.domain, adb_port)
+            print("Device serial: %s" % device_serial)
             qemu_port = Device(device_serial="").get_random_port()
             device = Device(
                 device_serial=device_serial,

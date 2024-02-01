@@ -629,9 +629,14 @@ class Device(object):
                 install_cmd.append("-g")
             install_cmd.append(app.app_path)
             install_p = subprocess.Popen(install_cmd, stdout=subprocess.PIPE)
+            waiting = 0
             while self.connected and package_name not in self.adb.get_installed_apps():
                 print("Please wait while installing the app...")
                 time.sleep(2)
+                waiting += 1
+                if waiting > 10:
+                    install_p.terminate()
+                    return
             if not self.connected:
                 install_p.terminate()
                 return

@@ -6,8 +6,11 @@ from droidbot import input_policy
 from droidbot import env_manager
 from droidbot import DroidBot
 from droidbot.droidmaster import DroidMaster
-
-
+from droidbot.utils import get_available_devices
+import os
+import sys
+import subprocess
+import random
 def parse_args():
     """
     parse command line input
@@ -19,7 +22,7 @@ def parse_args():
                         help="The serial number of target device (use `adb devices` to find)")
     parser.add_argument("-a", action="store", dest="apk_path", required=True,
                         help="The file path to target APK")
-    parser.add_argument("-o", action="store", dest="output_dir",
+    parser.add_argument("-o", action="store", dest="output_dir", default=  "dynamic_analysis_output",
                         help="directory of output")
     # parser.add_argument("-env", action="store", dest="env_policy",
     #                     help="policy to set up environment. Supported policies:\n"
@@ -94,14 +97,13 @@ def parse_args():
     return options
 
 
-def main():
+def SADroid_droidbot_main(device_serial, opts, apk_path):
     """
     the main function
     it starts a droidbot according to the arguments given in cmd line
     """
-    opts = parse_args()
-    import os
-    if not os.path.exists(opts.apk_path):
+
+    if not os.path.exists(apk_path):
         print("APK does not exist.")
         return
     if not opts.output_dir and opts.cv_mode:
@@ -115,60 +117,143 @@ def main():
     else:
         start_mode = "normal"
 
-    if start_mode == "master":
-        droidmaster = DroidMaster(
-            app_path=opts.apk_path,
-            is_emulator=opts.is_emulator,
-            output_dir=opts.output_dir,
-            # env_policy=opts.env_policy,
-            env_policy=env_manager.POLICY_NONE,
-            policy_name=opts.input_policy,
-            random_input=opts.random_input,
-            script_path=opts.script_path,
-            event_interval=opts.interval,
-            timeout=opts.timeout,
-            event_count=opts.count,
-            cv_mode=opts.cv_mode,
-            debug_mode=opts.debug_mode,
-            keep_app=opts.keep_app,
-            keep_env=opts.keep_env,
-            profiling_method=opts.profiling_method,
-            grant_perm=opts.grant_perm,
-            enable_accessibility_hard=opts.enable_accessibility_hard,
-            qemu_hda=opts.qemu_hda,
-            qemu_no_graphic=opts.qemu_no_graphic,
-            humanoid=opts.humanoid,
-            ignore_ad=opts.ignore_ad,
-            replay_output=opts.replay_output)
-        droidmaster.start()
-    else:
-        droidbot = DroidBot(
-            app_path=opts.apk_path,
-            device_serial=opts.device_serial,
-            is_emulator=opts.is_emulator,
-            output_dir=opts.output_dir,
-            # env_policy=opts.env_policy,
-            env_policy=env_manager.POLICY_NONE,
-            policy_name=opts.input_policy,
-            random_input=opts.random_input,
-            script_path=opts.script_path,
-            event_interval=opts.interval,
-            timeout=opts.timeout,
-            event_count=opts.count,
-            cv_mode=opts.cv_mode,
-            debug_mode=opts.debug_mode,
-            keep_app=opts.keep_app,
-            keep_env=opts.keep_env,
-            profiling_method=opts.profiling_method,
-            grant_perm=opts.grant_perm,
-            enable_accessibility_hard=opts.enable_accessibility_hard,
-            master=opts.master,
-            humanoid=opts.humanoid,
-            ignore_ad=opts.ignore_ad,
-            replay_output=opts.replay_output)
-        droidbot.start()
+    try:
+        if start_mode == "master":
+            droidmaster = DroidMaster(
+                app_path=apk_path,
+                is_emulator=opts.is_emulator,
+                output_dir=opts.output_dir,
+                # env_policy=opts.env_policy,
+                env_policy=env_manager.POLICY_NONE,
+                policy_name=opts.input_policy,
+                random_input=opts.random_input,
+                script_path=opts.script_path,
+                event_interval=opts.interval,
+                timeout=opts.timeout,
+                event_count=opts.count,
+                cv_mode=opts.cv_mode,
+                debug_mode=opts.debug_mode,
+                keep_app=opts.keep_app,
+                keep_env=opts.keep_env,
+                profiling_method=opts.profiling_method,
+                grant_perm=opts.grant_perm,
+                enable_accessibility_hard=opts.enable_accessibility_hard,
+                qemu_hda=opts.qemu_hda,
+                qemu_no_graphic=opts.qemu_no_graphic,
+                humanoid=opts.humanoid,
+                ignore_ad=opts.ignore_ad,
+                replay_output=opts.replay_output)
+            droidmaster.start()
+        else:
+            droidbot = DroidBot(
+                app_path=apk_path,
+                device_serial=device_serial,
+                is_emulator=opts.is_emulator,
+                output_dir=opts.output_dir,
+                # env_policy=opts.env_policy,
+                env_policy=env_manager.POLICY_NONE,
+                policy_name=opts.input_policy,
+                random_input=opts.random_input,
+                script_path=opts.script_path,
+                event_interval=opts.interval,
+                timeout=opts.timeout,
+                event_count=opts.count,
+                cv_mode=opts.cv_mode,
+                debug_mode=opts.debug_mode,
+                keep_app=opts.keep_app,
+                keep_env=opts.keep_env,
+                profiling_method=opts.profiling_method,
+                grant_perm=opts.grant_perm,
+                enable_accessibility_hard=opts.enable_accessibility_hard,
+                master=opts.master,
+                humanoid=opts.humanoid,
+                ignore_ad=opts.ignore_ad,
+                replay_output=opts.replay_output)
+            
+            print("start test")
+            droidbot.start()
+            print("test")
+    except subprocess.CalledProcessError as e:
+        print(f"Failed subprocess : {e}")
+    except Exception as e:
+        print("Main Error: %s" % e)
     return
 
 
 if __name__ == "__main__":
-    main()
+
+    failed_apks = {}
+    opts = parse_args()
+    print("opts.apk_path: %s" % opts.apk_path)
+    all_devices = get_available_devices()
+
+
+    if(os.path.isdir(opts.apk_path)): # For SADroid dynamic analysis on apk dataset
+        SADroid_dataset = [a for a in os.listdir(opts.apk_path) if a.endswith(".apk") and a.startswith("repacked_")]      
+        # print("SADroid dataset: %s" % SADroid_dataset)
+        # shuffle SADroid_dataset
+        random.shuffle(SADroid_dataset)
+        # SADroid_dataset = ["repacked_2DA4F4978C9C01E138DCCB9BD21D191B40F70FF796C1AB56B12A39E01B287434.apk"] + SADroid_dataset
+        for apkname in SADroid_dataset: # Run on all apks in dataset
+            print("Current testing apk: %s" % apkname)
+            # get the package name of the apk
+            package_name = subprocess.check_output(["aapt", "dump", "badging", os.path.join(opts.apk_path, apkname)]).decode("utf-8").split("'")[1]
+
+            all_devices = get_available_devices()
+            print("Available devices: %s" % all_devices)
+
+            for device_serial in all_devices: # Run on all devices
+                print("Current testing device: %s" % device_serial)
+
+                #Init device
+                try:
+                    subprocess.run(['adb' , '-s', device_serial , 'shell', 'svc', 'wifi', 'enable'])#確保連網
+                    os.system('adb -s ' + device_serial + ' logcat -G 16M')#增加logcat緩衝區大小
+                except:
+                    print('init exception')
+
+
+                apk_output_dir = os.path.join(opts.output_dir, apkname.replace(".apk", "").replace("repacked_", ""))
+                if not os.path.exists(apk_output_dir):
+                    os.makedirs(apk_output_dir)
+
+                #Redirect this apk's output to subdir/files
+                log_file_out = os.path.join(apk_output_dir, "["+device_serial+"]_output_log.txt")
+                log_file_err = os.path.join(apk_output_dir, "["+device_serial+"]_error_log.txt")
+                original_stdout = sys.stdout  # 保存原始 stdout
+                original_stderr = sys.stderr  # 保存原始 stderr
+                # 重定向標準輸出和標準錯誤到日誌文件
+                sys.stdout = open(log_file_out, 'w')
+                sys.stderr = open(log_file_err, 'w')
+
+                #Apk's logcat output
+                logcat_out_file = open(os.path.join(apk_output_dir, "["+device_serial+"]_logcat_output.txt"), 'w')
+                logcat_err_file = open(os.path.join(apk_output_dir, "["+device_serial+"]_logcat_error.txt"), 'w')
+
+                try:      
+                    subprocess.Popen(["adb", "-s", device_serial, "logcat", "-c"])                  
+                    SADroid_droidbot_main(device_serial, opts, os.path.join(opts.apk_path, apkname))
+                   # adb uninstall the apk
+                    # subprocess.Popen(["adb", "-s", device_serial, "uninstall", package_name])
+
+                    subprocess.Popen(["adb", "-s", device_serial, "logcat", "GeniusPudding:D", "*:S"], stdout= logcat_out_file,
+                                stderr=subprocess.DEVNULL)
+                    subprocess.Popen(["adb", "-s", device_serial, "logcat", "AndroidRuntime:E", "*:S"], stdout= logcat_err_file,
+                                stderr=subprocess.DEVNULL)
+
+                except Exception as e:
+                    
+                    failed_apks[apkname] = e
+                    sys.stdout.close()
+                    sys.stderr.close()
+                    sys.stdout = original_stdout
+                    sys.stderr = original_stderr
+                    print(f"Failed apk: {apkname} on Exception: {e}")
+                    continue
+                sys.stdout.close()
+                sys.stderr.close()
+                sys.stdout = original_stdout
+                sys.stderr = original_stderr
+    elif opts.apk_path.endswith(".apk"): # Origin droidbot usage
+        SADroid_droidbot_main(opts.device_serial, opts, opts.apk_path)
+
