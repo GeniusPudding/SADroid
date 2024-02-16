@@ -9,14 +9,14 @@ param_registers_num = lambda params_list: len(params_list) + params_list.count('
 get_dirlist = lambda method_sign: method_sign[1:].split(';->')[0].split('/') + [method_sign[1:].split(';->')[1].split('(')[0]]
 
 is_main_activity = lambda class_name, main_activity: class_name[1:-1].split('/') == main_activity.split('.')
-entry_list = ['onCreate(Landroid/os/Bundle;)V', "onStart()V", 'onRestart()V',"onResume()V",  "onPause()V", "onStop()V", "onDestroy()V"\
-     ,'onStart(Landroid/content/Intent;I)V',  'onStartCommand(Landroid/content/Intent;II)I', "onReceive(Landroid/content/Context;Landroid/content/Intent;)V"]  
+# entry_list = ['onCreate(Landroid/os/Bundle;)V', "onStart()V", 'onRestart()V',"onResume()V",  "onPause()V", "onStop()V", "onDestroy()V"\
+#      ,'onStart(Landroid/content/Intent;I)V',  'onStartCommand(Landroid/content/Intent;II)I', "onReceive(Landroid/content/Context;Landroid/content/Intent;)V"]  
 #lifecycle methods
 pattern = r'[0-9]'
 # function: use regex to filter out all numbers of the method sign string sha256 result, and return
 get_mspace_fieldname = lambda method_sign: re.sub(pattern, '', hashlib.sha256(method_sign.encode('utf-8')).hexdigest())
-
-
+hash_sign = lambda sign: hashlib.sha256(sign.encode('utf-8')).hexdigest()[:16] # use 16 chars to identify
+ 
 
 def get_params_list(line,  class_sign = None):#.method 或是invoke line, .method需要額外傳入class_sign
     
