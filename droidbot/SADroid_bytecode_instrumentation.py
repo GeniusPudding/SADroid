@@ -31,7 +31,7 @@ def methodlog_instrumentation(target_apk_path, redecompile, target_API_graph, cu
     dirname, basename = os.path.split(target_apk_path)
     app_name = os.path.splitext(basename)[0]
     app_hash = hash_sign(app_name)
-    cursor.execute('INSERT INTO app (app_hash, app_name) VALUES (?, ?)', (app_hash, app_name))
+    cursor.execute('INSERT OR IGNORE INTO app (app_hash, app_name) VALUES (?, ?)', (app_hash, app_name))
     
     apktool_dir = os.path.join(dirname,app_name)
     #1.apktool decompile
@@ -81,18 +81,8 @@ def methodlog_instrumentation(target_apk_path, redecompile, target_API_graph, cu
             print(f"Zipalign successful, output saved to {build_path}")
         except subprocess.CalledProcessError as e:
             print(f"Zipalign failed with error: {e}")
-        os.system('apksigner sign --ks '+ os.path.join(os.getcwd(), 'apkmaster','res','1.keystore')  + ' --ks-pass pass:s35gj6 --out ' + repackaged_apk_path + ' ' + build_path2)
+        os.system('apksigner sign --ks '+ os.path.join(os.getcwd(), 'res','1.keystore')  + ' --ks-pass pass:s35gj6 --out ' + repackaged_apk_path + ' ' + build_path2)
         
-        #shutil.copy2(build_path , repackaged_apk_path)
-
-        # input(f'apktool build:{s}')
-        # repackage = os.path.join(os.getcwd(), 'apkmaster','batches','repackage.bat')
-        # cmd = [repackage,dirname,app_name]# apktool_dir.rstrip('\\/')]
-        # print(f'cmd:{cmd}')
-        # r = subprocess.check_output(cmd).decode()
-        # packagename = r.split('\r\n')[-2]
-        # print(f'check output:{r}')
-        # #TODO: on Unix
     except:
         raise RuntimeError('Failed to repackage')
 
