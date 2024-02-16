@@ -80,7 +80,16 @@
 
 .method public static stringLog(Ljava/lang/String;)V
     .locals 1
-    const-string v0, "GeniusPudding"
+    const-string v0, "SADroid"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method public static monitorLog(Ljava/lang/String;)V
+    .locals 1
+    const-string v0, "SADroid"
 
     invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -91,7 +100,7 @@
 # concate 2 parameters string and call android log function to print out the information
 .method public static monitorLog2(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    const-string v0, "GeniusPudding"
+    const-string v0, "SADroid"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -118,7 +127,7 @@
 # concate 3 parameters string and call android log function to print out the information
 .method public static monitorLog3(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    const-string v0, "GeniusPudding"
+    const-string v0, "SADroid"
 
     new-instance v1, Ljava/lang/StringBuilder;
 

@@ -236,7 +236,7 @@ if __name__ == "__main__":
                    # adb uninstall the apk
                     # subprocess.Popen(["adb", "-s", device_serial, "uninstall", package_name])
 
-                    subprocess.Popen(["adb", "-s", device_serial, "logcat", "GeniusPudding:D", "*:S"], stdout= logcat_out_file,
+                    subprocess.Popen(["adb", "-s", device_serial, "logcat", "SADroid:D", "*:S"], stdout= logcat_out_file,
                                 stderr=subprocess.DEVNULL)
                     subprocess.Popen(["adb", "-s", device_serial, "logcat", "AndroidRuntime:E", "*:S"], stdout= logcat_err_file,
                                 stderr=subprocess.DEVNULL)
