@@ -1,0 +1,24 @@
+{
+    "views": {
+        "allow_button": {
+            "text": "允許",
+            "class": ".*Button"
+        }
+    },
+    "states": {
+        "allow_state": {
+            "views": ["allow_button"]
+        }
+    },
+    "operations": {
+        "allow_operation": [
+            {
+                "event_type": "touch",
+                "target_view": "allow_button"
+            }
+        ]
+    },
+    "main": {
+        "allow_state": ["allow_operation"]
+    }
+}

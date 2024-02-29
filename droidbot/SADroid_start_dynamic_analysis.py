@@ -11,6 +11,7 @@ import os
 import sys
 import subprocess
 import random
+from tqdm import tqdm
 def parse_args():
     """
     parse command line input
@@ -187,20 +188,26 @@ if __name__ == "__main__":
     print("opts.apk_path: %s" % opts.apk_path)
     all_devices = get_available_devices()
 
+    outputs = os.listdir(opts.output_dir)
 
     if(os.path.isdir(opts.apk_path)): # For SADroid dynamic analysis on apk dataset
-        SADroid_dataset = [a for a in os.listdir(opts.apk_path) if a.endswith(".apk") and a.startswith("repacked_")]      
-        # print("SADroid dataset: %s" % SADroid_dataset)
-        # shuffle SADroid_dataset
+        SADroid_dataset = [a for a in os.listdir(opts.apk_path) if a.endswith(".apk") and a.startswith("repacked_") and a.replace(".apk", "").replace("repacked_", "") not in outputs]      
+        # filter out the apks that have been tested
         random.shuffle(SADroid_dataset)
+        print("SADroid_dataset: %s" % SADroid_dataset)
+        print("len(SADroid_dataset): %s" % len(SADroid_dataset))
         # SADroid_dataset = ["repacked_2DA4F4978C9C01E138DCCB9BD21D191B40F70FF796C1AB56B12A39E01B287434.apk"] + SADroid_dataset
-        for apkname in SADroid_dataset: # Run on all apks in dataset
+        for apkname in tqdm(SADroid_dataset): # Run on all apks in dataset
             print("Current testing apk: %s" % apkname)
             # get the package name of the apk
             package_name = subprocess.check_output(["aapt", "dump", "badging", os.path.join(opts.apk_path, apkname)]).decode("utf-8").split("'")[1]
 
             all_devices = get_available_devices()
             print("Available devices: %s" % all_devices)
+            apk_output_dir = os.path.join(opts.output_dir, apkname.replace(".apk", "").replace("repacked_", ""))
+            if not os.path.exists(apk_output_dir):
+                os.makedirs(apk_output_dir)
+
 
             for device_serial in all_devices: # Run on all devices
                 print("Current testing device: %s" % device_serial)
@@ -211,11 +218,6 @@ if __name__ == "__main__":
                     os.system('adb -s ' + device_serial + ' logcat -G 16M')#增加logcat緩衝區大小
                 except:
                     print('init exception')
-
-
-                apk_output_dir = os.path.join(opts.output_dir, apkname.replace(".apk", "").replace("repacked_", ""))
-                if not os.path.exists(apk_output_dir):
-                    os.makedirs(apk_output_dir)
 
                 #Redirect this apk's output to subdir/files
                 log_file_out = os.path.join(apk_output_dir, "["+device_serial+"]_output_log.txt")
