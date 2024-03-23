@@ -188,10 +188,22 @@ if __name__ == "__main__":
     print("opts.apk_path: %s" % opts.apk_path)
     all_devices = get_available_devices()
 
-    outputs = os.listdir(opts.output_dir)
-
+    # outputs = os.listdir('./logcat')
+    # uncompleted_dataset_list = []
+    # for appname in outputs:
+    #     for device_serial in all_devices:
+    #         output_file = os.path.join('./logcat', appname, "[" + device_serial + "]_logcat_output.txt")
+    #         if not os.path.exists(output_file):
+    #             break
+    #         # 如果output_file大小為0，代表沒有logcat輸出，也代表沒有成功測試
+    #         if os.path.getsize(output_file) == 0:
+    #             uncompleted_dataset_list += ["repacked_" + appname + ".apk"]
+    #             break
+    # input("uncompleted_dataset_list: %s" % uncompleted_dataset_list)    
+               
     if(os.path.isdir(opts.apk_path)): # For SADroid dynamic analysis on apk dataset
-        SADroid_dataset = [a for a in os.listdir(opts.apk_path) if a.endswith(".apk") and a.startswith("repacked_") and a.replace(".apk", "").replace("repacked_", "") not in outputs]      
+        SADroid_dataset = [a for a in os.listdir(opts.apk_path) if a.endswith(".apk")and a.startswith("repacked_")] # and a.replace(".apk", "").replace("repacked_", "") not in outputs]      
+        # SADroid_dataset += uncompleted_dataset_list
         # filter out the apks that have been tested
         random.shuffle(SADroid_dataset)
         print("SADroid_dataset: %s" % SADroid_dataset)
@@ -204,11 +216,13 @@ if __name__ == "__main__":
 
             all_devices = get_available_devices()
             print("Available devices: %s" % all_devices)
-            apk_output_dir = os.path.join(opts.output_dir, apkname.replace(".apk", "").replace("repacked_", ""))
+            apk_output_dir = os.path.join('./logcat', apkname.replace(".apk", "").replace("repacked_", ""))
             if not os.path.exists(apk_output_dir):
                 os.makedirs(apk_output_dir)
 
-
+            cycle_count = len([l for l in os.listdir(apk_output_dir) if '[emulator-5554]_logcat_output' in l])
+            cycle_count = "_"+str(cycle_count) if cycle_count > 0 else ""
+            # input(f"cycle_count: {cycle_count}")
             for device_serial in all_devices: # Run on all devices
                 print("Current testing device: %s" % device_serial)
 
@@ -220,17 +234,21 @@ if __name__ == "__main__":
                     print('init exception')
 
                 #Redirect this apk's output to subdir/files
-                log_file_out = os.path.join(apk_output_dir, "["+device_serial+"]_output_log.txt")
-                log_file_err = os.path.join(apk_output_dir, "["+device_serial+"]_error_log.txt")
+                log_file_out = os.path.join(apk_output_dir, "["+device_serial+"]_output_log"+cycle_count+".txt")
+                log_file_err = os.path.join(apk_output_dir, "["+device_serial+"]_error_log"+cycle_count+".txt")
                 original_stdout = sys.stdout  # 保存原始 stdout
                 original_stderr = sys.stderr  # 保存原始 stderr
+                print(f'log_file_out: {log_file_out}')
+                print(f'log_file_err: {log_file_err}')
                 # 重定向標準輸出和標準錯誤到日誌文件
                 sys.stdout = open(log_file_out, 'w')
                 sys.stderr = open(log_file_err, 'w')
 
                 #Apk's logcat output
-                logcat_out_file = open(os.path.join(apk_output_dir, "["+device_serial+"]_logcat_output.txt"), 'w')
-                logcat_err_file = open(os.path.join(apk_output_dir, "["+device_serial+"]_logcat_error.txt"), 'w')
+                logcat_out_file = open(os.path.join(apk_output_dir, "["+device_serial+"]_logcat_output"+cycle_count+".txt"), 'w')
+                logcat_err_file = open(os.path.join(apk_output_dir, "["+device_serial+"]_logcat_error"+cycle_count+".txt"), 'w')
+                print(f'logcat_out_file: {logcat_out_file}')
+                print(f'logcat_err_file: {logcat_err_file}')
 
                 try:      
                     subprocess.Popen(["adb", "-s", device_serial, "logcat", "-c"])                  

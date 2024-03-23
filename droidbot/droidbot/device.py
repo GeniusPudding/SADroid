@@ -652,7 +652,7 @@ class Device(object):
                 line = line.decode()
             dumpsys_lines.append(line)
         if self.output_dir is not None:
-            package_info_file_name = "%s/dumpsys_package_%s.txt" % (self.output_dir, app.get_package_name())
+            package_info_file_name = "%s/dumpsys_package/%s.txt" % (self.output_dir, app.get_package_name())
             package_info_file = open(package_info_file_name, "w")
             package_info_file.writelines(dumpsys_lines)
             package_info_file.close()
