@@ -12,6 +12,12 @@ import sys
 import subprocess
 import random
 from tqdm import tqdm
+ignore_list = [
+    'repacked_000B390A3721379376B43BD4481DB65C7EDB7C05514EB681B172CA959F85CD1C.apk'
+
+
+]
+
 def parse_args():
     """
     parse command line input
@@ -202,9 +208,11 @@ if __name__ == "__main__":
     # input("uncompleted_dataset_list: %s" % uncompleted_dataset_list)    
                
     if(os.path.isdir(opts.apk_path)): # For SADroid dynamic analysis on apk dataset
-        SADroid_dataset = [a for a in os.listdir(opts.apk_path) if a.endswith(".apk")and a.startswith("repacked_")] # and a.replace(".apk", "").replace("repacked_", "") not in outputs]      
+        SADroid_dataset = [a for a in os.listdir(opts.apk_path) if a.endswith(".apk") and a.startswith("repacked_") and a not in ignore_list] # and a.replace(".apk", "").replace("repacked_", "") not in outputs]      
         # SADroid_dataset += uncompleted_dataset_list
         # filter out the apks that have been tested
+
+
         random.shuffle(SADroid_dataset)
         print("SADroid_dataset: %s" % SADroid_dataset)
         print("len(SADroid_dataset): %s" % len(SADroid_dataset))

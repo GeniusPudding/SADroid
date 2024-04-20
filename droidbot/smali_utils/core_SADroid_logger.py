@@ -17,7 +17,7 @@ next_reg = lambda reg: reg[0] + str(int(reg[1:])+1)
 #lambda function for p-form register to v-form register
 p2v_reg = lambda reg, locals_num: 'v' + str(int(reg[1:])+locals_num) if reg[0] == 'p' else reg
 tag_sign = lambda line: line.strip().lstrip(':') if not ':cond_' in line else 'True'+line.strip()
-additional_local_count = 1
+additional_local_count = 2
 def check_common_instruction_replace(line, locals_num):
 	if not notCommonInstruction(line):
 		try:
@@ -109,16 +109,21 @@ def is_invoke_offcial(invoke_line):#黑名單 但不知道要怎樣才會齊全
 		is_offcial = True
 	return is_offcial
 
-def gen_method_start_log(method_hash, v_last, app_hash):	
+def gen_method_start_log(method_hash, v_last, v_last2, app_hash):	
 	#new_content = ('    #Instrumentation by GeniusPudding\n')
-	new_content = (f'    const-string {v_last}, \"[{app_hash}], [Method START], [{method_hash}]\"\n\n')
+	new_content = (f'    invoke-static {{}}, LSADroid/InlineLogs;->genRandom()Ljava/lang/String;\n\n')
+	new_content += (f'    move-result-object {v_last2}\n\n')
+	new_content += (f'    const-string {v_last}, \"[{app_hash}], [Method START], [{method_hash}] \"\n\n')
+	new_content += (f'    invoke-static/range {{{v_last} .. {v_last2}}}, LSADroid/InlineLogs;->stringCancate(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n\n')
+	new_content += (f'    move-result-object {v_last}\n\n')
 	new_content += (f'    invoke-static/range {{{v_last}}}, LSADroid/InlineLogs;->monitorLog(Ljava/lang/String;)V\n\n')
+
 	return new_content
 
 # function for generating the correspounding move- instructions in smali of parameters "params_list"
 def gen_method_params_log(locals_num, params_list):
 	if len(params_list) == 0:
-		return ''
+		return ''	
 	new_content = ('    #Instrumentation by GeniusPudding\n')
 	p_count = 0
 	for param in params_list:
@@ -150,7 +155,8 @@ def method_logger(smali_lines,smali_base_dir, target_API_graph_all, app_hash, cu
 	new_content = ''
 	locals_num = 0
 	params_num = 0
-	v_last = '' #用來存放random ID的暫存register
+	v_last = '' #用來存放要Logcat輸出的訊息字串
+	v_last2 = '' #用來存放random ID的暫存register
 	params_list = []
 
 	for i,line in enumerate(smali_lines):
@@ -177,32 +183,41 @@ def method_logger(smali_lines,smali_base_dir, target_API_graph_all, app_hash, cu
 					return new_content
 				num = locals_num + params_num
 				v_last = 'v'+str(num)
+				v_last2 = 'v'+str(num + 1)
 				line = line.replace(str(locals_num),str(locals_num+additional_local_count))
 				new_content += (line+'\n')
 				new_content += gen_method_params_log(locals_num, params_list)
-				new_content += gen_method_start_log(method_hash, v_last, app_hash)
+				new_content += gen_method_start_log(method_hash, v_last, v_last2, app_hash)
 				locals_num += additional_local_count
 				output_flag = 0 
 			elif line.startswith('.end method'):
 				in_method_flag = False
 				#try_catch_map = {}
 			elif line.startswith('    return'):
-				new_content += (f'    const-string {v_last}, "[{app_hash}], [Method END], [{method_hash}]"\n\n')
+				new_content += (f'    const-string {v_last}, "[{app_hash}], [Method END], [{method_hash}] "\n\n')
+				new_content += (f'    invoke-static/range {{{v_last} .. {v_last2}}}, LSADroid/InlineLogs;->stringCancate(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n\n')
+				new_content += (f'    move-result-object {v_last}\n\n')
 				new_content += (f'    invoke-static/range {{{v_last}}}, LSADroid/InlineLogs;->monitorLog(Ljava/lang/String;)V\n\n')
 			elif line.startswith('    invoke'):
 				invoke_sign = get_invoke_sign(line)
 				if is_target_method(invoke_sign,smali_base_dir,target_API_graph_all):
-					new_content += (f'    const-string {v_last}, \"[{app_hash}], [TARGET API CALL: {invoke_sign} - (line {str(i)})], [{method_hash}]\"\n\n')
+					new_content += (f'    const-string {v_last}, \"[{app_hash}], [TARGET API CALL: {invoke_sign} - (line {str(i)})], [{method_hash}] \"\n\n')
+					new_content += (f'    invoke-static/range {{{v_last} .. {v_last2}}}, LSADroid/InlineLogs;->stringCancate(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n\n')
+					new_content += (f'    move-result-object {v_last}\n\n')
 					new_content += (f'    invoke-static/range {{{v_last}}}, LSADroid/InlineLogs;->monitorLog(Ljava/lang/String;)V\n\n')
 
 			elif line.startswith('    if-'):
 				output_flag	= 0
-				new_content += (f'    const-string {v_last}, \"[{app_hash}], [Branch: {tmp_line.strip()} - (line {str(i)})], [{method_hash}]\"\n\n')
+				new_content += (f'    const-string {v_last}, \"[{app_hash}], [Branch: {tmp_line.strip()} - (line {str(i)})], [{method_hash}] \"\n\n')
+				new_content += (f'    invoke-static/range {{{v_last} .. {v_last2}}}, LSADroid/InlineLogs;->stringCancate(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n\n')
+				new_content += (f'    move-result-object {v_last}\n\n')
 				new_content += (f'    invoke-static/range {{{v_last}}}, LSADroid/InlineLogs;->monitorLog(Ljava/lang/String;)V\n\n')
 				new_content += (line+'\n\n')
 				# new_content += (f'    const-string {v_last}, \"- Case False: {line.strip()}\"\n\n')
 				false_tag = 'False'+line.strip().split(' ')[-1]
-				new_content += (f'    const-string {v_last}, \"[{app_hash}], [TAG: {false_tag} - (line {str(i)})], [{method_hash}]\"\n\n')
+				new_content += (f'    const-string {v_last}, \"[{app_hash}], [TAG: {false_tag} - (line {str(i)})], [{method_hash}] \"\n\n')
+				new_content += (f'    invoke-static/range {{{v_last} .. {v_last2}}}, LSADroid/InlineLogs;->stringCancate(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n\n')
+				new_content += (f'    move-result-object {v_last}\n\n')
 				new_content += (f'    invoke-static/range {{{v_last}}}, LSADroid/InlineLogs;->monitorLog(Ljava/lang/String;)V\n')
 			# elif line.startswith('    move-result'):
 			# 	pass
@@ -218,14 +233,16 @@ def method_logger(smali_lines,smali_base_dir, target_API_graph_all, app_hash, cu
 				last_line = smali_lines[i-1]
 				if not last_line.startswith('    :'):# 若上一行也是標籤，則表示這個標籤已經處理過了
 			
-					next_line = check_common_instruction_replace(smali_lines[i+1], locals_num-2)
-					next2_line = check_common_instruction_replace(smali_lines[i+2], locals_num-2) #標籤後面緊接的指令必須妥善處理
+					next_line = check_common_instruction_replace(smali_lines[i+1], locals_num-additional_local_count)
+					next2_line = check_common_instruction_replace(smali_lines[i+2], locals_num-additional_local_count) #標籤後面緊接的指令必須妥善處理
 					tag_str = f'[{app_hash}], [TAG: '
 					if line.startswith('    :try_end'):
 						catch_list = next_line.strip().split(' ')	 #    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 						end, catch = catch_list[-2][1:-1], catch_list[-1][1:]
-						tag_str += (end + '->:' + catch + f' - (line {str(i)})], [{method_hash}]')
+						tag_str += (end + '->:' + catch + f' - (line {str(i)})], [{method_hash}] ')
 						new_content += (f'    const-string {v_last}, \"{tag_str}\"\n\n')
+						new_content += (f'    invoke-static/range {{{v_last} .. {v_last2}}}, LSADroid/InlineLogs;->stringCancate(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n\n')
+						new_content += (f'    move-result-object {v_last}\n\n')
 						new_content += (f'    invoke-static/range {{{v_last}}}, LSADroid/InlineLogs;->monitorLog(Ljava/lang/String;)V\n\n')				
 						new_content += (line+'\n')
 					elif line.startswith('    :sswitch_data') or line.startswith('    :pswitch_data') :# 這個下一行會跟著.sparse-switch或.packed-switch [offset]然後是一堆case
@@ -237,8 +254,10 @@ def method_logger(smali_lines,smali_base_dir, target_API_graph_all, app_hash, cu
 						new_content += next_line
 						if next_line.startswith('    :'): #try_start會接後面 :catchall後面也會接:cond
 							new_content += next2_line
-						tag_str += (tag_sign(line) + f' - (line {str(i)})], [{method_hash}]')
+						tag_str += (tag_sign(line) + f' - (line {str(i)})], [{method_hash}] ')
 						new_content += (f'\n    const-string {v_last}, \"{tag_str}\"\n\n')
+						new_content += (f'    invoke-static/range {{{v_last} .. {v_last2}}}, LSADroid/InlineLogs;->stringCancate(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n\n')
+						new_content += (f'    move-result-object {v_last}\n\n')
 						new_content += (f'    invoke-static/range {{{v_last}}}, LSADroid/InlineLogs;->monitorLog(Ljava/lang/String;)V\n\n')										
 					else: # common tag case
 						new_content += (line+'\n')
@@ -249,8 +268,10 @@ def method_logger(smali_lines,smali_base_dir, target_API_graph_all, app_hash, cu
 							if next2_line.startswith('    :'):
 								new_content += next2_line
 								tag_str += (','+tag_sign(next2_line))
-						tag_str += f' - (line {str(i)})], [{method_hash}]'
+						tag_str += f' - (line {str(i)})], [{method_hash}] '
 						new_content += (f'    const-string {v_last}, \"{tag_str}\"\n\n')
+						new_content += (f'    invoke-static/range {{{v_last} .. {v_last2}}}, LSADroid/InlineLogs;->stringCancate(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n\n')
+						new_content += (f'    move-result-object {v_last}\n\n')
 						new_content += (f'    invoke-static/range {{{v_last}}}, LSADroid/InlineLogs;->monitorLog(Ljava/lang/String;)V\n\n')				
 			line += '\n'	
 		if output_flag:
