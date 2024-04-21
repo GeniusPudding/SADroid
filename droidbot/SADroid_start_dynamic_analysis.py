@@ -186,6 +186,63 @@ def SADroid_droidbot_main(device_serial, opts, apk_path):
         print("Main Error: %s" % e)
     return
 
+def SADroid_droidbot_main_wrapper(device_serial, opts, cycle_count, apk_output_dir):
+    """
+    the main function
+    it starts a droidbot according to the arguments given in cmd line
+    """
+    print("Current testing device: %s" % device_serial)
+
+    #Init device
+    try:
+        subprocess.run(['adb' , '-s', device_serial , 'shell', 'svc', 'wifi', 'enable'])#確保連網
+        os.system('adb -s ' + device_serial + ' logcat -G 16M')#增加logcat緩衝區大小
+    except:
+        print('init exception')
+
+    #Redirect this apk's output to subdir/files
+    log_file_out = os.path.join(apk_output_dir, "["+device_serial+"]_output_log"+cycle_count+".txt")
+    log_file_err = os.path.join(apk_output_dir, "["+device_serial+"]_error_log"+cycle_count+".txt")
+    original_stdout = sys.stdout  # 保存原始 stdout
+    original_stderr = sys.stderr  # 保存原始 stderr
+    print(f'log_file_out: {log_file_out}')
+    print(f'log_file_err: {log_file_err}')
+    # 重定向標準輸出和標準錯誤到日誌文件
+    sys.stdout = open(log_file_out, 'w')
+    sys.stderr = open(log_file_err, 'w')
+
+    #Apk's logcat output
+    logcat_out_file = open(os.path.join(apk_output_dir, "["+device_serial+"]_logcat_output"+cycle_count+".txt"), 'w')
+    logcat_err_file = open(os.path.join(apk_output_dir, "["+device_serial+"]_logcat_error"+cycle_count+".txt"), 'w')
+    print(f'logcat_out_file: {logcat_out_file}')
+    print(f'logcat_err_file: {logcat_err_file}')
+
+    try:      
+        subprocess.Popen(["adb", "-s", device_serial, "logcat", "-c"])                  
+        SADroid_droidbot_main(device_serial, opts, os.path.join(opts.apk_path, apkname))
+    # adb uninstall the apk
+        # subprocess.Popen(["adb", "-s", device_serial, "uninstall", package_name])
+
+        subprocess.Popen(["adb", "-s", device_serial, "logcat", "SADroid:D", "*:S"], stdout= logcat_out_file,
+                    stderr=subprocess.DEVNULL)
+        subprocess.Popen(["adb", "-s", device_serial, "logcat", "AndroidRuntime:E", "*:S"], stdout= logcat_err_file,
+                    stderr=subprocess.DEVNULL)
+
+    except Exception as e:
+        
+        failed_apks[apkname] = e
+        sys.stdout.close()
+        sys.stderr.close()
+        sys.stdout = original_stdout
+        sys.stderr = original_stderr
+        print(f"Failed apk: {apkname} on Exception: {e}")
+        return
+    sys.stdout.close()
+    sys.stderr.close()
+    sys.stdout = original_stdout
+    sys.stderr = original_stderr
+
+
 
 if __name__ == "__main__":
 
@@ -222,66 +279,21 @@ if __name__ == "__main__":
             # get the package name of the apk
             package_name = subprocess.check_output(["aapt", "dump", "badging", os.path.join(opts.apk_path, apkname)]).decode("utf-8").split("'")[1]
 
-            all_devices = get_available_devices()
-            print("Available devices: %s" % all_devices)
             apk_output_dir = os.path.join('./logcat', apkname.replace(".apk", "").replace("repacked_", ""))
-            if not os.path.exists(apk_output_dir):
-                os.makedirs(apk_output_dir)
+            os.makedirs(apk_output_dir, exist_ok=True)
 
             cycle_count = len([l for l in os.listdir(apk_output_dir) if '[emulator-5554]_logcat_output' in l])
             cycle_count = "_"+str(cycle_count) if cycle_count > 0 else ""
             # input(f"cycle_count: {cycle_count}")
-            for device_serial in all_devices: # Run on all devices
-                print("Current testing device: %s" % device_serial)
+            if opts.device_serial != None:
+                device_serial = opts.device_serial
+                SADroid_droidbot_main_wrapper(device_serial, opts, cycle_count, apk_output_dir)
+            else:            
+                all_devices = get_available_devices()
+                print("Available devices: %s" % all_devices)
+                for device_serial in all_devices: # Run on all devices
+                    SADroid_droidbot_main_wrapper(device_serial, opts, cycle_count, apk_output_dir)
 
-                #Init device
-                try:
-                    subprocess.run(['adb' , '-s', device_serial , 'shell', 'svc', 'wifi', 'enable'])#確保連網
-                    os.system('adb -s ' + device_serial + ' logcat -G 16M')#增加logcat緩衝區大小
-                except:
-                    print('init exception')
-
-                #Redirect this apk's output to subdir/files
-                log_file_out = os.path.join(apk_output_dir, "["+device_serial+"]_output_log"+cycle_count+".txt")
-                log_file_err = os.path.join(apk_output_dir, "["+device_serial+"]_error_log"+cycle_count+".txt")
-                original_stdout = sys.stdout  # 保存原始 stdout
-                original_stderr = sys.stderr  # 保存原始 stderr
-                print(f'log_file_out: {log_file_out}')
-                print(f'log_file_err: {log_file_err}')
-                # 重定向標準輸出和標準錯誤到日誌文件
-                sys.stdout = open(log_file_out, 'w')
-                sys.stderr = open(log_file_err, 'w')
-
-                #Apk's logcat output
-                logcat_out_file = open(os.path.join(apk_output_dir, "["+device_serial+"]_logcat_output"+cycle_count+".txt"), 'w')
-                logcat_err_file = open(os.path.join(apk_output_dir, "["+device_serial+"]_logcat_error"+cycle_count+".txt"), 'w')
-                print(f'logcat_out_file: {logcat_out_file}')
-                print(f'logcat_err_file: {logcat_err_file}')
-
-                try:      
-                    subprocess.Popen(["adb", "-s", device_serial, "logcat", "-c"])                  
-                    SADroid_droidbot_main(device_serial, opts, os.path.join(opts.apk_path, apkname))
-                   # adb uninstall the apk
-                    # subprocess.Popen(["adb", "-s", device_serial, "uninstall", package_name])
-
-                    subprocess.Popen(["adb", "-s", device_serial, "logcat", "SADroid:D", "*:S"], stdout= logcat_out_file,
-                                stderr=subprocess.DEVNULL)
-                    subprocess.Popen(["adb", "-s", device_serial, "logcat", "AndroidRuntime:E", "*:S"], stdout= logcat_err_file,
-                                stderr=subprocess.DEVNULL)
-
-                except Exception as e:
-                    
-                    failed_apks[apkname] = e
-                    sys.stdout.close()
-                    sys.stderr.close()
-                    sys.stdout = original_stdout
-                    sys.stderr = original_stderr
-                    print(f"Failed apk: {apkname} on Exception: {e}")
-                    continue
-                sys.stdout.close()
-                sys.stderr.close()
-                sys.stdout = original_stdout
-                sys.stderr = original_stderr
     elif opts.apk_path.endswith(".apk"): # Origin droidbot usage
         SADroid_droidbot_main(opts.device_serial, opts, opts.apk_path)
 

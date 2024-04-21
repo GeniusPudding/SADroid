@@ -107,8 +107,7 @@ def split_log_lines(log_lines, is_emu, app_hash, conn, app_logdir):
         method_hash_map[method_hash] = method_sign
 
         method_dir = os.path.join(app_logdir, method_hash)
-        if not os.path.exists(method_dir):
-            os.makedirs(method_dir)
+        os.makedirs(method_dir, exist_ok=True)
         if method_sign not in discovered_method:
             discovered_method[method_sign] = []
 

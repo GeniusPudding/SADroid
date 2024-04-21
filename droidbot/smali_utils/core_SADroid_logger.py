@@ -75,7 +75,6 @@ def not_exist_in_path(method_sign,smali_base_dir):	#如果該smali file存在也
 			for s in smalis:
 				#print(f's:{s}')
 				t = os.path.join(current_base, s)
-				#print(f't:{t}, exists:{os.path.exists(t)}')
 				with open(t, 'r',encoding='utf-8') as f:
 					line = f.readline()
 					#print(f'line:{line}')

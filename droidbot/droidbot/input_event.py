@@ -206,8 +206,7 @@ class EventLog(object):
             else:
                 output_dir = os.path.join(self.device.output_dir, "events")
         try:
-            if not os.path.exists(output_dir):
-                os.makedirs(output_dir)
+            os.makedirs(output_dir, exist_ok=True)
             event_json_file_path = "%s/event_%s.json" % (output_dir, self.tag)
             event_json_file = open(event_json_file_path, "w")
             json.dump(self.to_dict(), event_json_file, indent=2)
@@ -294,8 +293,7 @@ class EventLog(object):
                     return
                 else:
                     output_dir = os.path.join(self.device.output_dir, "events")
-            if not os.path.exists(output_dir):
-                os.makedirs(output_dir)
+            os.makedirs(output_dir, exist_ok=True)
             event_trace_local_path = "%s/event_trace_%s.trace" % (output_dir, self.tag)
             self.device.pull_file(self.trace_remote_file, event_trace_local_path)
 

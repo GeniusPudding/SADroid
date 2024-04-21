@@ -792,8 +792,7 @@ class Device(object):
         from datetime import datetime
         tag = datetime.now().strftime("%Y-%m-%d_%H%M%S")
         local_image_dir = os.path.join(self.output_dir, "temp")
-        if not os.path.exists(local_image_dir):
-            os.makedirs(local_image_dir)
+        os.makedirs(local_image_dir, exist_ok=True)
 
         if self.adapters[self.minicap] and self.minicap.last_screen:
             # minicap use jpg format
