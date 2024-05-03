@@ -11,12 +11,15 @@ import os
 import sys
 import subprocess
 import random
+import re
+import glob
 from tqdm import tqdm
 ignore_list = [
     'repacked_000B390A3721379376B43BD4481DB65C7EDB7C05514EB681B172CA959F85CD1C.apk'
 
 
 ]
+
 
 def parse_args():
     """
@@ -186,13 +189,18 @@ def SADroid_droidbot_main(device_serial, opts, apk_path):
         print("Main Error: %s" % e)
     return
 
-def SADroid_droidbot_main_wrapper(device_serial, opts, cycle_count, apk_output_dir):
+def get_cycle_count(apk_output_dir, device_serial):
+    cycle_count = len([l for l in os.listdir(apk_output_dir) if '[emulator-5554]_logcat_output' in l])
+    return "_"+str(cycle_count) if cycle_count > 0 else ""
+
+
+def SADroid_droidbot_main_wrapper(device_serial, opts, apk_output_dir):
     """
     the main function
     it starts a droidbot according to the arguments given in cmd line
     """
     print("Current testing device: %s" % device_serial)
-
+    cycle_count = get_cycle_count(apk_output_dir, device_serial)
     #Init device
     try:
         subprocess.run(['adb' , '-s', device_serial , 'shell', 'svc', 'wifi', 'enable'])#確保連網
@@ -244,6 +252,7 @@ def SADroid_droidbot_main_wrapper(device_serial, opts, cycle_count, apk_output_d
 
 
 
+
 if __name__ == "__main__":
 
     failed_apks = {}
@@ -251,26 +260,28 @@ if __name__ == "__main__":
     print("opts.apk_path: %s" % opts.apk_path)
     all_devices = get_available_devices()
 
-    # outputs = os.listdir('./logcat')
-    # uncompleted_dataset_list = []
-    # for appname in outputs:
-    #     for device_serial in all_devices:
-    #         output_file = os.path.join('./logcat', appname, "[" + device_serial + "]_logcat_output.txt")
-    #         if not os.path.exists(output_file):
-    #             break
-    #         # 如果output_file大小為0，代表沒有logcat輸出，也代表沒有成功測試
-    #         if os.path.getsize(output_file) == 0:
-    #             uncompleted_dataset_list += ["repacked_" + appname + ".apk"]
-    #             break
-    # input("uncompleted_dataset_list: %s" % uncompleted_dataset_list)    
-               
     if(os.path.isdir(opts.apk_path)): # For SADroid dynamic analysis on apk dataset
         SADroid_dataset = [a for a in os.listdir(opts.apk_path) if a.endswith(".apk") and a.startswith("repacked_") and a not in ignore_list] # and a.replace(".apk", "").replace("repacked_", "") not in outputs]      
-        # SADroid_dataset += uncompleted_dataset_list
-        # filter out the apks that have been tested
+        if opts.device_serial is not None:
+            device_serial = opts.device_serial
+            not_executed_apks = []
+            executed_apks = []
+                        
+            for apkname in SADroid_dataset:
+                apk_output_dir = os.path.join('./logcat', apkname.replace(".apk", "").replace("repacked_", ""))
+                if not os.path.exists(apk_output_dir) or len( [f for f in os.listdir(apk_output_dir) if device_serial+']_logcat_output' in f])==0:
+                    print(f'{apkname} not executed')
+                    not_executed_apks.append(apkname)
+                else:
+                    executed_apks.append(apkname)
 
+            
+            random.shuffle(not_executed_apks)
+            input(f'len(not_executed_apks): {len(not_executed_apks)}')
+            SADroid_dataset = not_executed_apks + executed_apks
+        else:
+            random.shuffle(SADroid_dataset)
 
-        random.shuffle(SADroid_dataset)
         print("SADroid_dataset: %s" % SADroid_dataset)
         print("len(SADroid_dataset): %s" % len(SADroid_dataset))
         # SADroid_dataset = ["repacked_2DA4F4978C9C01E138DCCB9BD21D191B40F70FF796C1AB56B12A39E01B287434.apk"] + SADroid_dataset
@@ -282,17 +293,14 @@ if __name__ == "__main__":
             apk_output_dir = os.path.join('./logcat', apkname.replace(".apk", "").replace("repacked_", ""))
             os.makedirs(apk_output_dir, exist_ok=True)
 
-            cycle_count = len([l for l in os.listdir(apk_output_dir) if '[emulator-5554]_logcat_output' in l])
-            cycle_count = "_"+str(cycle_count) if cycle_count > 0 else ""
-            # input(f"cycle_count: {cycle_count}")
             if opts.device_serial != None:
-                device_serial = opts.device_serial
-                SADroid_droidbot_main_wrapper(device_serial, opts, cycle_count, apk_output_dir)
+                device_serial = opts.device_serial                
+                SADroid_droidbot_main_wrapper(device_serial, opts, apk_output_dir)
             else:            
                 all_devices = get_available_devices()
                 print("Available devices: %s" % all_devices)
                 for device_serial in all_devices: # Run on all devices
-                    SADroid_droidbot_main_wrapper(device_serial, opts, cycle_count, apk_output_dir)
+                    SADroid_droidbot_main_wrapper(device_serial, opts, apk_output_dir)
 
     elif opts.apk_path.endswith(".apk"): # Origin droidbot usage
         SADroid_droidbot_main(opts.device_serial, opts, opts.apk_path)

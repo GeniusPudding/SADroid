@@ -1,0 +1,7 @@
+{"location": "./dcfg\\io.github.visnkmr.bapl\\2d2211f4a76f8382", "block": ["[TAG: True:cond_1 - (line 325)]\n", "[Branch: if-nez v22, :cond_0 - (line 332)]\n", "[Branch: if-eqz v22, :cond_1 - (line 315)]\n"]}
+{"location": "./dcfg\\io.github.visnkmr.bapl\\2d2211f4a76f8382", "block": ["[TAG: True:cond_0 - (line 288)]\n", "[TARGET API CALL: Landroid/database/Cursor;->getString(I)Ljava/lang/String; - (line 304)]\n", "[Branch: if-eqz v22, :cond_1 - (line 315)]\n", "[Branch: if-eqz v22, :cond_1 - (line 315)]\n"]}
+{"location": "./dcfg\\io.github.visnkmr.bapl\\2d2211f4a76f8382", "block": ["[TAG: True:cond_1 - (line 325)]\n", "[Branch: if-nez v22, :cond_0 - (line 332)]\n", "[Branch: if-nez v22, :cond_0 - (line 332)]\n"]}
+{"location": "./dcfg\\io.github.visnkmr.bapl\\2d2211f4a76f8382", "block": ["[TAG: True:cond_1 - (line 325)]\n", "[TARGET API CALL: Landroid/database/Cursor;->getString(I)Ljava/lang/String; - (line 304)]\n", "[Branch: if-eqz v22, :cond_1 - (line 315)]\n"]}
+{"location": "./dcfg\\io.github.visnkmr.bapl\\563abff6ec4d9af6", "block": ["[TAG: True:cond_0 - (line 112)]\n"]}
+{"location": "./dcfg\\io.github.visnkmr.bapl\\a5a5754718e433b3", "block": ["[TAG: True:cond_0 - (line 324)]\n", "[Branch: if-nez v5, :cond_1 - (line 346)]\n"]}
+{"location": "./dcfg\\io.github.visnkmr.bapl\\d5f3130a9d209477", "block": ["[Method START]\n", "[Branch: if-eqz v1, :cond_0 - (line 3550)]\n"]}

@@ -1,0 +1,7 @@
+{"location": "./dcfg\\com.dakshapps.junglewaterfall\\1d67203a517410ef", "block": ["[TAG: False:cond_0 - (line 113)]\n"]}
+{"location": "./dcfg\\com.dakshapps.junglewaterfall\\34abe838869ec15e", "block": ["[TAG: True:cond_0 - (line 1046)]\n", "[Branch: if-eqz v9, :cond_1 - (line 1063)]\n"]}
+{"location": "./dcfg\\com.dakshapps.junglewaterfall\\351039a8f46b1009", "block": ["[Method START]\n", "[Branch: if-eqz p1, :cond_0 - (line 1372)]\n"]}
+{"location": "./dcfg\\com.dakshapps.junglewaterfall\\351039a8f46b1009", "block": ["[TAG: False:cond_1 - (line 1391)]\n", "[Branch: if-eqz p1, :cond_2 - (line 1397)]\n"]}
+{"location": "./dcfg\\com.dakshapps.junglewaterfall\\792e14f3150e0913", "block": ["[TAG: False:cond_1 - (line 85)]\n", "[Branch: if-ne p1, v1, :cond_2 - (line 91)]\n"]}
+{"location": "./dcfg\\com.dakshapps.junglewaterfall\\bd05ac47f478c653", "block": ["[Method START]\n", "[Branch: if-nez v0, :cond_8 - (line 735)]\n"]}
+{"location": "./dcfg\\com.dakshapps.junglewaterfall\\f2caab3bda90031b", "block": ["[TAG: goto_0 - (line 128)]\n", "[Branch: if-eqz v4, :cond_12 - (line 129)]\n"]}

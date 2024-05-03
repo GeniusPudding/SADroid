@@ -1,0 +1,10 @@
+{"location": "./dcfg\\com.nainfomatics.microphone.earspy\\0df70afb5b4b5978", "block": ["[Method START]\n", "[Branch: if-nez v4, :cond_1b - (line 6282)]\n"]}
+{"location": "./dcfg\\com.nainfomatics.microphone.earspy\\1c248a25eef020ea", "block": ["[TAG: False:cond_14 - (line 1493)]\n", "[Branch: if-eqz v19, :cond_14 - (line 1501)]\n"]}
+{"location": "./dcfg\\com.nainfomatics.microphone.earspy\\2801fa1224ba854e", "block": ["[TAG: False:cond_2 - (line 134)]\n", "[Branch: if-eqz v2, :cond_2 - (line 138)]\n"]}
+{"location": "./dcfg\\com.nainfomatics.microphone.earspy\\3e714ff221184781", "block": ["[Method START]\n", "[Branch: if-eqz v0, :cond_0 - (line 6076)]\n"]}
+{"location": "./dcfg\\com.nainfomatics.microphone.earspy\\3e714ff221184781", "block": ["[TAG: True:cond_0 - (line 6083)]\n", "[Branch: if-eqz v0, :cond_1 - (line 6089)]\n"]}
+{"location": "./dcfg\\com.nainfomatics.microphone.earspy\\9034dfc856f9015c", "block": ["[Branch: if-ne v2, p2, :cond_0 - (line 629)]\n"]}
+{"location": "./dcfg\\com.nainfomatics.microphone.earspy\\b5ab66b232005fd1", "block": ["[TAG: goto_2 - (line 520)]\n"]}
+{"location": "./dcfg\\com.nainfomatics.microphone.earspy\\b5ab66b232005fd1", "block": ["[TAG: False:cond_c - (line 216)]\n", "[Branch: if-nez v15, :cond_3 - (line 235)]\n"]}
+{"location": "./dcfg\\com.nainfomatics.microphone.earspy\\b83b2d803180e4c1", "block": ["[TAG: True:cond_0 - (line 242)]\n", "[Branch: if-nez v1, :cond_1 - (line 246)]\n"]}
+{"location": "./dcfg\\com.nainfomatics.microphone.earspy\\c69d39dc2af64b23", "block": ["[TAG: False:cond_1 - (line 187)]\n", "[Branch: if-nez v2, :cond_0 - (line 192)]\n"]}

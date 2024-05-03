@@ -1,0 +1,1 @@
+{"location": "./dcfg\\de.sammysoft.consumption\\9287525efb6be51f", "block": ["[Method START]\n", "[TARGET API CALL: Landroid/widget/RadioButton;->isChecked()Z - (line 50)]\n", "[Branch: if-eqz v1, :cond_0 - (line 55)]\n"]}

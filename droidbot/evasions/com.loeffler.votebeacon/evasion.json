@@ -1,0 +1,3 @@
+{"location": "./dcfg\\com.loeffler.votebeacon\\3a6fad29b33eb9e9", "block": ["[Method START]\n", "[Branch: if-lez v5, :cond_3 - (line 1243)]\n"]}
+{"location": "./dcfg\\com.loeffler.votebeacon\\7d0085b2d8fe72bf", "block": ["[TAG: True:cond_1 - (line 2248)]\n", "[Branch: if-nez v2, :cond_2 - (line 2255)]\n"]}
+{"location": "./dcfg\\com.loeffler.votebeacon\\c3921981486fa263", "block": ["[TAG: True:cond_0 - (line 225)]\n", "[Branch: if-nez v3, :cond_1 - (line 234)]\n"]}

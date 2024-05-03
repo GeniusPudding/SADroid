@@ -1,0 +1,1 @@
+{"location": "./dcfg\\com.lab.flashlight.buddhalight6\\3b90b19dd8303ccb", "block": ["[Method START]\n", "[TARGET API CALL: Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V - (line 1764)]\n", "[Branch: if-eq v0, v4, :cond_0 - (line 1771)]\n"]}

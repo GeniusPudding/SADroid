@@ -1,0 +1,6 @@
+{"location": "./dcfg\\com.hlcsdev.x.shoppinglist\\07ef349120f551d7", "block": ["[TAG: True:cond_0 - (line 2840)]\n"]}
+{"location": "./dcfg\\com.hlcsdev.x.shoppinglist\\17f5ac8808d93667", "block": ["[TAG: False:cond_0 - (line 2635)]\n"]}
+{"location": "./dcfg\\com.hlcsdev.x.shoppinglist\\423c3f82e9dd6853", "block": ["[Method START]\n", "[Branch: if-ne p1, v2, :cond_0 - (line 5292)]\n"]}
+{"location": "./dcfg\\com.hlcsdev.x.shoppinglist\\5e8aaa9dac249f49", "block": ["[TAG: True:cond_9 - (line 401)]\n"]}
+{"location": "./dcfg\\com.hlcsdev.x.shoppinglist\\c62322923ee7a7de", "block": ["[TAG: True:cond_0 - (line 1311)]\n"]}
+{"location": "./dcfg\\com.hlcsdev.x.shoppinglist\\dd3faea30d67a32c", "block": ["[Method START]\n", "[Branch: if-nez p1, :cond_0 - (line 1649)]\n"]}
