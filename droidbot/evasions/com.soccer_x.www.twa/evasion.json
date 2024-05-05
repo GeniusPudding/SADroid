@@ -1,1 +1,1 @@
-{"location": "./dcfg\\com.soccer_x.www.twa\\74d1b71a771efdef", "block": ["[TAG: False:cond_1 - (line 71)]\n", "[Branch: if-eqz v1, :cond_3 - (line 84)]\n"]}
+{"location": "./dcfg\\com.soccer_x.www.twa\\74d1b71a771efdef", "block": ["[TAG: False:cond_1 - (line 71)]\n", "[Branch: if-eqz v1, :cond_3 - (line 84)]\n"], "real_child_block": ["[TAG: False:cond_3 - (line 84)]\n"], "emu_child_blocks": [["[TAG: True:cond_3 - (line 122)]\n", "[Method END]\n"]]}

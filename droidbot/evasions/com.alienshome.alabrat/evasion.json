@@ -1,2 +1,2 @@
-{"location": "./dcfg\\com.alienshome.alabrat\\2ef3860c74468bb0", "block": ["[TAG: False:cond_6 - (line 2473)]\n", "[Branch: if-eqz p3, :cond_6 - (line 2475)]\n"]}
-{"location": "./dcfg\\com.alienshome.alabrat\\e251800f50f55be7", "block": ["[TAG: True:cond_5 - (line 1598)]\n", "[Branch: if-eqz v8, :cond_6 - (line 1599)]\n"]}
+{"location": "./dcfg\\com.alienshome.alabrat\\2ef3860c74468bb0", "block": ["[TAG: False:cond_6 - (line 2473)]\n", "[Branch: if-eqz p3, :cond_6 - (line 2475)]\n"], "real_child_block": ["[TAG: True:cond_6 - (line 2515)]\n", "[Method END]\n"], "emu_child_blocks": [["[TAG: False:cond_6 - (line 2475)]\n", "[Method END]\n"]]}
+{"location": "./dcfg\\com.alienshome.alabrat\\e251800f50f55be7", "block": ["[TAG: True:cond_5 - (line 1598)]\n", "[Branch: if-eqz v8, :cond_6 - (line 1599)]\n"], "real_child_block": ["[TAG: False:cond_6 - (line 1599)]\n"], "emu_child_blocks": [["[TAG: True:cond_6 - (line 1605)]\n", "[Method END]\n"]]}

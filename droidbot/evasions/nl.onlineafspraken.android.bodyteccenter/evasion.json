@@ -1,1 +1,1 @@
-{"location": "./dcfg\\nl.onlineafspraken.android.bodyteccenter\\9e066e478257b061", "block": ["[TAG: try_start_1 - (line 113)]\n"]}
+{"location": "./dcfg\\nl.onlineafspraken.android.bodyteccenter\\9e066e478257b061", "block": ["[TAG: try_start_1 - (line 113)]\n"], "real_child_block": ["[TAG: try_end_1->:catch_0 - (line 117)]\n"], "emu_child_blocks": [["[TAG: catch_0 - (line 172)]\n", "[Method END]\n"]]}

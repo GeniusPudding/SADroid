@@ -1,1 +1,1 @@
-{"location": "./dcfg\\com.pixel_nest.stockagent2\\78e0be01c8c31c02", "block": ["[TAG: False:cond_0 - (line 1098)]\n", "[Branch: if-lez v8, :cond_0 - (line 1118)]\n"]}
+{"location": "./dcfg\\com.pixel_nest.stockagent2\\78e0be01c8c31c02", "block": ["[TAG: False:cond_0 - (line 1098)]\n", "[Branch: if-lez v8, :cond_0 - (line 1118)]\n"], "real_child_block": ["[TAG: True:cond_0 - (line 749)]\n", "[Branch: if-nez v8, :cond_1 - (line 758)]\n"], "emu_child_blocks": [["[TAG: False:cond_0 - (line 1118)]\n"]]}

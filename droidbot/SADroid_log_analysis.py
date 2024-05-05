@@ -37,66 +37,69 @@ def log_to_blocklist(log_lines):
     # print(f'blocklist:{blocklist}')
     return blocklist
 
-def find_evasion(app_logdir, conn):
+def find_evasion(app_logdir, app_evasions_dir, conn):
     evasion = []
-    
     for method_dir in os.listdir(app_logdir):
         method_sign = conn.execute('SELECT method_sign FROM method WHERE method_hash =?', (method_dir,)).fetchone()
         basepath = os.path.join(app_logdir, method_dir)
         real_device_log_file = os.path.join(basepath, 'real_device_log.txt')
         emu_device_log_file = os.path.join(basepath, 'emulator_device_log.txt')
+        
         if not os.path.exists(real_device_log_file) or not os.path.exists(emu_device_log_file):
             continue
+        
         with open(real_device_log_file, 'r') as f:
-            real_log_lines = f.readlines() 
+            real_log_lines = f.readlines()
         with open(emu_device_log_file, 'r') as f:
             emu_log_lines = f.readlines()
-
+        
         real_blocklist = log_to_blocklist(real_log_lines)
         emu_blocklist = log_to_blocklist(emu_log_lines)
-        # print(f'\nreal_blocklist:{real_blocklist}')
-        # print(f'emu_blocklist:{emu_blocklist}')
-        #解析real_log_lines裡面 [Parent Block], [Child Block]的組合
+        
         for i, real_block in enumerate(real_blocklist[:-1]):
-            if '[Method END]\n' in real_block or ['[Method START]\n'] == real_block: #這種異常case不需要判斷下一個block
+            if '[Method END]\n' in real_block or ['[Method START]\n'] == real_block:
                 continue
+            
             real_child_block = real_blocklist[i+1]
-            if real_child_block[0] == '[Method START]\n':#Method START不能當child
+            if real_child_block[0] == '[Method START]\n':
                 continue
-
+            
             emu_same_block = []
             for j, emu_block in enumerate(emu_blocklist[:-1]):
                 if emu_block == real_block:
                     emu_same_block.append(j)
-            if emu_same_block == []:#至少要有一樣的block才能比是否有evasion
+            
+            if emu_same_block == []:
                 continue
-     
             
             emu_child_blocks = [emu_blocklist[emu_index+1] for emu_index in emu_same_block if emu_blocklist[emu_index+1][0] != '[Method START]\n']
-            # print(f'real_child_block:{real_child_block}')
-            # print(f'emu_child_blocks:{emu_child_blocks}')
-            if any(real_child_block[0] == emu_child_block[0] for emu_child_block in emu_child_blocks) or emu_child_blocks == []:
-                continue #如果兩種裝置都走到一樣的child block(只要出現一次，只看開頭的TAG)那大概這個real_block就不是個evasion， 或是emu_child_block沒有動態執行到
-
-            other_child_blocks = [real_blocklist[k+1] for k, real_same_block in enumerate(real_blocklist[:-1]) if real_same_block == real_block]
-            # print(f'other_child_blocks:{other_child_blocks}')
-            if any(real_child_block[0] != other_child_block[0] for other_child_block in other_child_blocks):
-                continue #實體機應該要固定走同一個child block才可能是一個我們要的evasion
+            emu_child_blocks = [json.dumps(block) for block in emu_child_blocks]
+            emu_child_blocks = list(set(emu_child_blocks))
+            emu_child_blocks = [json.loads(block) for block in emu_child_blocks]
             
-            #Evasion set加入不重複的evasion block
-            if  {'location': basepath, 'block': real_block} not in evasion:
-                evasion.append({'location': basepath, 'block': real_block})
+            if any(real_child_block[0] == emu_child_block[0] for emu_child_block in emu_child_blocks) or emu_child_blocks == []:
+                continue
+            
+            other_child_blocks = [real_blocklist[k+1] for k, real_same_block in enumerate(real_blocklist[:-1]) if real_same_block == real_block]
+            
+            if any(real_child_block[0] != other_child_block[0] for other_child_block in other_child_blocks):
+                continue
+            
+            if {'location': basepath, 'block': real_block, 'real_child_block': real_child_block, 'emu_child_blocks': emu_child_blocks} not in evasion:
+                evasion.append({'location': basepath, 'block': real_block, 'real_child_block': real_child_block, 'emu_child_blocks': emu_child_blocks})
                 print(f'Find evasion:{real_block} belong to method:{basepath}, real_device_log_file:{real_device_log_file}, emu_device_log_file:{emu_device_log_file}')
-
-
+                print(f'Real device child block: {real_child_block}')
+                print(f'Emulator child blocks: {emu_child_blocks}')
+    
     try:
-        with open(os.path.join(app_logdir, 'evasion.json'), 'w') as f:
+        with open(os.path.join(app_evasions_dir, 'evasion.json'), 'w') as f:
             for e in evasion:
                 f.write(json.dumps(e)+'\n')
     except:
         pass
-
+    
     return evasion
+
             
 def split_log_lines(log_lines, is_emu, app_hash, conn, app_logdir, error_apps):
     # 用 method sign 和 random ID 組合作為區分
@@ -254,6 +257,7 @@ if __name__ == "__main__":
     error_apps = set()
     logcat_dir = './logcat'
     dcfg_dir = './dcfg' 
+    evasions_dir = './evasions' 
     with open('./jsons/TriggerZoo_x86_filename2packagename.json', 'r') as f:
         f2p_mapping = json.load(f)
     
@@ -261,6 +265,8 @@ if __name__ == "__main__":
     conn = sqlite3.connect(dbfile)
     all_devices = get_available_devices()
     total_evasion = []
+    all_evasions = {}
+
     for app_name in tqdm(os.listdir(logcat_dir)):
         print(f'app name:{app_name}')
         package_name = f2p_mapping[app_name]
@@ -268,6 +274,7 @@ if __name__ == "__main__":
         print(f'app hash:{app_hash}, package_name:{package_name}')
 
         app_logdir = os.path.join(dcfg_dir, package_name)
+        app_evasions_dir = os.path.join(evasions_dir, package_name)
         if not os.path.exists(app_logdir):
             os.makedirs(app_logdir)
         # dcfg_file = os.path.join(dcfg_dir, package_name+'_dcfg.json')
@@ -293,12 +300,13 @@ if __name__ == "__main__":
 
         #分析app_logdir裡面每一個method的資料夾
 
-
-
-        evasion = find_evasion(app_logdir, conn)
+        evasion = find_evasion(app_logdir, app_evasions_dir, conn)
         print(f'app_name:{app_name}, evasion:{evasion}')
         total_evasion += evasion
+        all_evasions[package_name] = evasion
     print(f'Total evasion:{total_evasion}')
+    with open('all_evasions.json', 'w') as f:
+        json.dump(all_evasions, f, indent=4)
     print("Apps that raised errors:")
     for app_name in error_apps:
         print(app_name)

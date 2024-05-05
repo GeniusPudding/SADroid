@@ -1,1 +1,1 @@
-{"location": "./dcfg\\com.cgslurp.hotspothotshot\\0010f5806a72124b", "block": ["[TAG: True:cond_6 - (line 2546)]\n", "[Branch: if-eqz v13, :cond_b - (line 2553)]\n"]}
+{"location": "./dcfg\\com.cgslurp.hotspothotshot\\0010f5806a72124b", "block": ["[TAG: True:cond_6 - (line 2546)]\n", "[Branch: if-eqz v13, :cond_b - (line 2553)]\n"], "real_child_block": ["[TAG: False:cond_b - (line 2553)]\n", "[Branch: if-eqz v13, :cond_7 - (line 2573)]\n"], "emu_child_blocks": [["[TAG: True:cond_b - (line 2801)]\n", "[Branch: if-eq v0, v1, :cond_c - (line 2825)]\n"]]}

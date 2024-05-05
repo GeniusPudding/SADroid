@@ -1,2 +1,2 @@
-{"location": "./dcfg\\com.simplaapliko.converter\\4580bb0c5973df5e", "block": ["[TAG: False:cond_0 - (line 167)]\n", "[Branch: if-nez v1, :cond_0 - (line 177)]\n"]}
-{"location": "./dcfg\\com.simplaapliko.converter\\d9464ee30da865f5", "block": ["[TAG: try_start_0 - (line 1161)]\n", "[Branch: if-nez v0, :cond_0 - (line 1165)]\n"]}
+{"location": "./dcfg\\com.simplaapliko.converter\\4580bb0c5973df5e", "block": ["[TAG: False:cond_0 - (line 167)]\n", "[Branch: if-nez v1, :cond_0 - (line 177)]\n"], "real_child_block": ["[TAG: False:cond_0 - (line 177)]\n", "[Method END]\n"], "emu_child_blocks": [["[TAG: True:cond_0 - (line 183)]\n", "[Method END]\n"]]}
+{"location": "./dcfg\\com.simplaapliko.converter\\d9464ee30da865f5", "block": ["[TAG: try_start_0 - (line 1161)]\n", "[Branch: if-nez v0, :cond_0 - (line 1165)]\n"], "real_child_block": ["[TAG: True:cond_0 - (line 1181)]\n"], "emu_child_blocks": [["[TAG: False:cond_0 - (line 1165)]\n"]]}

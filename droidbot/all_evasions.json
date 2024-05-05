@@ -1,0 +1,2640 @@
+{
+    "com.BdStore.KosteVoraValobasa": [
+        {
+            "location": "./dcfg\\com.BdStore.KosteVoraValobasa\\81e494fe139cab01",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v0, :cond_0 - (line 2709)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 2709)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 2713)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "usingnfc.com.mavricdemo": [],
+    "com.france.quiz": [],
+    "org.project.pycalculator": [
+        {
+            "location": "./dcfg\\org.project.pycalculator\\e841d2bd312ad040",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez v2, :cond_1 - (line 1283)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_1 - (line 1333)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1,goto_0 - (line 1299)]\n",
+                    "[Branch: if-nez p2, :cond_2 - (line 1301)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.mydefaultphoneapp.defaultphone": [],
+    "com.app.penasultra": [
+        {
+            "location": "./dcfg\\com.app.penasultra\\665e43636168879b",
+            "block": [
+                "[TAG: False:cond_0 - (line 111)]\n",
+                "[Branch: if-eqz v2, :cond_0 - (line 121)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 131)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 121)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "de.sweety.shooting": [],
+    "com.androidandrew.volumelimiter": [],
+    "in.gov.wb.wbrelieffund": [],
+    "net.ruckman.iscwarn": [],
+    "com.proyectos.ignacio_g_a.vitacora": [],
+    "com.coldsoil.androidtorch": [],
+    "com.imorapid.com": [],
+    "com.brighteyetea.pilotkick": [],
+    "com.preciousapp.tshirt.android.app": [],
+    "com.clinvivo.datacatcher": [],
+    "com.gcart.android.fazha": [],
+    "org.mystphysx.wallet.mygulfcoinwallet": [],
+    "com.aurhe.ap37": [],
+    "com.ez.automatic.phonecall.recorder": [],
+    "hu.chefpro.android": [],
+    "com.vgsa.vgsa_mobile": [],
+    "com.acr.minigun": [],
+    "com.gamemob.minijump": [],
+    "la.ggu.m16.m16chat": [],
+    "appinventor.ai_afandhirafa.EBOOK_CERITA_SUKSES": [],
+    "com.ActuallyUsefulSoftware.pokgp": [],
+    "com.djl.html5_init": [],
+    "mtw.app.vtu": [
+        {
+            "location": "./dcfg\\mtw.app.vtu\\4e39e6d6d4aa9172",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v0, :cond_0 - (line 502)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 502)]\n",
+                "[Branch: if-gt v1, p1, :cond_2 - (line 507)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 509)]\n",
+                    "[Branch: if-eqz v0, :cond_1 - (line 515)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\mtw.app.vtu\\4e39e6d6d4aa9172",
+            "block": [
+                "[TAG: True:cond_0 - (line 509)]\n",
+                "[Branch: if-eqz v0, :cond_1 - (line 515)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 515)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1 - (line 525)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\mtw.app.vtu\\c73fe549bf6e0a5b",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v1, :cond_0 - (line 404)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 404)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: try_end_3->:catch_2 - (line 495)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\mtw.app.vtu\\dc8758e606e6fdcb",
+            "block": [
+                "[TAG: goto_1 - (line 8427)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_1 - (line 8427)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_2,goto_2 - (line 8432)]\n",
+                    "[Branch: if-eqz v18, :cond_8 - (line 8436)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\mtw.app.vtu\\ebcb960f9c329531",
+            "block": [
+                "[TAG: False:cond_4 - (line 546)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_4 - (line 546)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_4 - (line 552)]\n",
+                    "[Branch: if-eqz v8, :cond_5 - (line 553)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\mtw.app.vtu\\fdd6ee1ddecd5a2c",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v0, :cond_3 - (line 116)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_3 - (line 116)]\n",
+                "[Branch: if-eq v0, v1, :cond_2 - (line 120)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_3 - (line 177)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "me.piebridge.bible": [],
+    "com.triplone": [],
+    "com.ecoin.ecoin": [],
+    "com.img.pdf": [],
+    "opeepl.sampleonly.app": [],
+    "com.electron.provjera": [],
+    "com.voxx.mobile.headrest": [],
+    "in.firm.stepsindia.orchardmart": [
+        {
+            "location": "./dcfg\\in.firm.stepsindia.orchardmart\\898dde1aa01647fd",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v1, :cond_0 - (line 168)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 176)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 168)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.BDPlus.ApnarSadharonGhan": [],
+    "com.ribblr.app": [],
+    "nl.sitedish.monalisaweesp": [],
+    "com.nicekit.android.timebosscloud": [
+        {
+            "location": "./dcfg\\com.nicekit.android.timebosscloud\\4bbca7b757d7a0d7",
+            "block": [
+                "[TAG: False:cond_6 - (line 1772)]\n",
+                "[Branch: if-eq p2, v1, :cond_5 - (line 1776)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_5 - (line 1780)]\n",
+                "[Branch: if-nez p1, :cond_6 - (line 1781)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_5 - (line 1776)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nicekit.android.timebosscloud\\8f637fa06334c2b3",
+            "block": [
+                "[TAG: try_end_0->:catch_0 - (line 221)]\n",
+                "[Branch: if-nez v2, :cond_0 - (line 225)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0,goto_0 - (line 262)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 225)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nicekit.android.timebosscloud\\9c8fb8490da07e6a",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz p1, :cond_0 - (line 157)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 157)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 182)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.forts.forts": [],
+    "com.calculatorgrapher.complexcalc": [],
+    "com.cooolindia.cooolindi1": [],
+    "com.ashensoftware.toolforyoutube": [],
+    "com.nainfomatics.microphone.earspy": [
+        {
+            "location": "./dcfg\\com.nainfomatics.microphone.earspy\\0df70afb5b4b5978",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez v4, :cond_1b - (line 6282)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_1b - (line 7340)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_1b - (line 6282)]\n",
+                    "[Branch: if-eqz v4, :cond_1a - (line 6304)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nainfomatics.microphone.earspy\\1c248a25eef020ea",
+            "block": [
+                "[TAG: False:cond_14 - (line 1493)]\n",
+                "[Branch: if-eqz v19, :cond_14 - (line 1501)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_14 - (line 1501)]\n",
+                "[Branch: if-nez v10, :cond_14 - (line 1511)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_14,goto_7 - (line 1527)]\n",
+                    "[Branch: if-eqz v20, :cond_15 - (line 1537)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nainfomatics.microphone.earspy\\2801fa1224ba854e",
+            "block": [
+                "[TAG: False:cond_2 - (line 134)]\n",
+                "[Branch: if-eqz v2, :cond_2 - (line 138)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_2 - (line 138)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_2 - (line 144)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nainfomatics.microphone.earspy\\3e714ff221184781",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v0, :cond_0 - (line 6076)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 6076)]\n",
+                "[Branch: if-gt v1, p1, :cond_2 - (line 6081)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 6083)]\n",
+                    "[Branch: if-eqz v0, :cond_1 - (line 6089)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nainfomatics.microphone.earspy\\3e714ff221184781",
+            "block": [
+                "[TAG: True:cond_0 - (line 6083)]\n",
+                "[Branch: if-eqz v0, :cond_1 - (line 6089)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 6089)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1 - (line 6099)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nainfomatics.microphone.earspy\\9034dfc856f9015c",
+            "block": [
+                "[Branch: if-ne v2, p2, :cond_0 - (line 629)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 624)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 635)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nainfomatics.microphone.earspy\\b5ab66b232005fd1",
+            "block": [
+                "[TAG: goto_2 - (line 520)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_c - (line 216)]\n",
+                "[Branch: if-nez v15, :cond_3 - (line 235)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_a,goto_3 - (line 531)]\n",
+                    "[Branch: if-nez v10, :cond_d - (line 533)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nainfomatics.microphone.earspy\\b5ab66b232005fd1",
+            "block": [
+                "[TAG: False:cond_c - (line 216)]\n",
+                "[Branch: if-nez v15, :cond_3 - (line 235)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_d - (line 533)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_3 - (line 235)]\n",
+                    "[Branch: if-eqz p3, :cond_a - (line 237)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nainfomatics.microphone.earspy\\b83b2d803180e4c1",
+            "block": [
+                "[TAG: True:cond_0 - (line 242)]\n",
+                "[Branch: if-nez v1, :cond_1 - (line 246)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 246)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1 - (line 252)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.nainfomatics.microphone.earspy\\c69d39dc2af64b23",
+            "block": [
+                "[TAG: False:cond_1 - (line 187)]\n",
+                "[Branch: if-nez v2, :cond_0 - (line 192)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 209)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 192)]\n"
+                ]
+            ]
+        }
+    ],
+    "io.Moonstargame.sanliturktarihi3": [],
+    "com.felsefe.notlari": [],
+    "ru.amartynov.bond_finder": [],
+    "com.hakimisolution.webapp": [],
+    "blesskcoin.com.android.kt1q.blesskcoin": [],
+    "com.digitalfuturesoft.mlbticketsapp": [],
+    "com.auralisoft.colorimeter": [],
+    "laundryonthewheels.app": [],
+    "com.apkinstaller": [],
+    "net.shapkin.timerchgk": [
+        {
+            "location": "./dcfg\\net.shapkin.timerchgk\\aeef013e4be2bd6b",
+            "block": [
+                "[TAG: True:cond_2 - (line 294)]\n",
+                "[TARGET API CALL: Landroid/widget/RadioButton;->isChecked()Z - (line 297)]\n",
+                "[Branch: if-eqz v0, :cond_3 - (line 301)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_3 - (line 323)]\n",
+                "[TARGET API CALL: Landroid/widget/RadioButton;->isChecked()Z - (line 326)]\n",
+                "[Branch: if-eqz v0, :cond_4 - (line 330)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_3 - (line 301)]\n",
+                    "[Branch: if-ne v1, v3, :cond_4 - (line 307)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.zeninfotech.typenepali_nepalitexttospeech": [],
+    "com.zibtek.on_course": [
+        {
+            "location": "./dcfg\\com.zibtek.on_course\\f2efcb61512f5827",
+            "block": [
+                "[TAG: try_end_2->:catch_0 - (line 49)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: try_end_3->:catch_1 - (line 57)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: try_start_3 - (line 53)]\n"
+                ]
+            ]
+        }
+    ],
+    "co.adelgazarencasa.adelgazarencasa": [],
+    "com.ipmobilesolutions.wallpapersiraq": [],
+    "itsfreedating.com": [],
+    "com.BDPlus.BangladesherItihas": [
+        {
+            "location": "./dcfg\\com.BDPlus.BangladesherItihas\\81e494fe139cab01",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v0, :cond_0 - (line 2709)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 2709)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 2713)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.yiggdrasil.knou_answers_viewer": [],
+    "com.nougadere.dev.guessthecolor": [],
+    "jp.simple_web_view": [],
+    "dev.hasni.srsinstaller": [],
+    "com.deadmantracker": [],
+    "appinventor.ai_bunjop.LifeFM": [],
+    "nl.foodticket.app.orderapp658": [],
+    "com.CheckPointTexter": [],
+    "com.mynamecubeapps.ball": [],
+    "moi.medisonlineindonesia.com": [],
+    "com.pit.roseandmango": [],
+    "com.samanyagyan2018.dhokha": [],
+    "com.freedollarstore.app": [],
+    "com.sportconsulting.ayuntamientoalcantarilla": [],
+    "pl.carmap.app": [],
+    "tech.klinge.picksort": [],
+    "nl.matthijsvh.screenoff": [],
+    "com.cgslurp.hotspothotshot": [
+        {
+            "location": "./dcfg\\com.cgslurp.hotspothotshot\\0010f5806a72124b",
+            "block": [
+                "[TAG: True:cond_6 - (line 2546)]\n",
+                "[Branch: if-eqz v13, :cond_b - (line 2553)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_b - (line 2553)]\n",
+                "[Branch: if-eqz v13, :cond_7 - (line 2573)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_b - (line 2801)]\n",
+                    "[Branch: if-eq v0, v1, :cond_c - (line 2825)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.santoexpedito.oracao": [
+        {
+            "location": "./dcfg\\com.santoexpedito.oracao\\81e494fe139cab01",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v0, :cond_0 - (line 2709)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 2713)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 2709)]\n"
+                ]
+            ]
+        }
+    ],
+    "it.whiletrue.tvseriestweet3": [],
+    "eu.dowellscience.dowellscienceapp": [],
+    "com.gcart.android.twice": [],
+    "lp2i.radiodelta.fr": [],
+    "ishita.resortbooking": [],
+    "com.soulreap.developerstouch.interpolatorguide": [],
+    "com.koreanfoodcourt.deliveryboy": [],
+    "com.flaps.herbfun": [
+        {
+            "location": "./dcfg\\com.flaps.herbfun\\0e4ab90620826e04",
+            "block": [
+                "[TAG: goto_0 - (line 778)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_0 - (line 778)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 798)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.flaps.herbfun\\204d9a3022588076",
+            "block": [
+                "[TAG: goto_0 - (line 87)]\n",
+                "[Branch: if-ge v1, v0, :cond_2 - (line 88)]\n",
+                "[Branch: if-eq v4, v5, :cond_1 - (line 106)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 106)]\n",
+                "[Branch: if-ge v0, v1, :cond_0 - (line 112)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1 - (line 123)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.flaps.herbfun\\2def8e1730f66a1a",
+            "block": [
+                "[Branch: if-nez v13, :cond_0 - (line 286)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 286)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 292)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.flaps.herbfun\\6adbe9b12a7f5d24",
+            "block": [
+                "[Branch: if-ne v0, v1, :cond_6 - (line 1987)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_7 - (line 1973)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_6 - (line 2009)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.flaps.herbfun\\89fbe009d0cbd135",
+            "block": [
+                "[TAG: try_start_4 - (line 902)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: try_end_0->:catch_0 - (line 869)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: try_end_4->:catch_0 - (line 915)]\n",
+                    "[Branch: if-eqz p1, :cond_2 - (line 918)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.flaps.herbfun\\a3a00ed2d36bc3d3",
+            "block": [
+                "[TAG: try_start_a - (line 545)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: try_end_8->:catch_1 - (line 516)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: try_end_a->:catch_1 - (line 573)]\n",
+                    "[Branch: if-eqz v16, :cond_3 - (line 577)]\n"
+                ],
+                [
+                    "[TAG: try_end_d->:catch_1 - (line 634)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.flaps.herbfun\\a3a00ed2d36bc3d3",
+            "block": [
+                "[TAG: False:cond_1 - (line 612)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_1,try_start_e - (line 640)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: try_start_c - (line 614)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.digitaltruth.fstop": [],
+    "com.huawei.agilecontroller.boarding": [],
+    "com.indiagury.whitepaper": [],
+    "com.trianguloy.openInWhatsapp": [],
+    "com.redpointglobal.redpointrewardtest": [],
+    "com.deepnetsecurity.safeidburner": [],
+    "iyapps.carrosusadosportugal": [],
+    "com.speedymarks.android.averageFree": [],
+    "com.farhanaliqureshi.pakistanlandareacalculator": [],
+    "com.branah.farsiiran": [],
+    "com.mymeals365.recipe": [],
+    "com.hlcsdev.x.shoppinglist": [
+        {
+            "location": "./dcfg\\com.hlcsdev.x.shoppinglist\\07ef349120f551d7",
+            "block": [
+                "[TAG: True:cond_0 - (line 2840)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 2831)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_0 - (line 2821)]\n",
+                    "[Branch: if-ge v0, v3, :cond_1 - (line 2831)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.hlcsdev.x.shoppinglist\\17f5ac8808d93667",
+            "block": [
+                "[TAG: False:cond_0 - (line 2635)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 2635)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_0 - (line 2632)]\n",
+                    "[Branch: if-ge v0, v1, :cond_0 - (line 2635)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.hlcsdev.x.shoppinglist\\423c3f82e9dd6853",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-ne p1, v2, :cond_0 - (line 5292)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 5292)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 5299)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.hlcsdev.x.shoppinglist\\5e8aaa9dac249f49",
+            "block": [
+                "[TAG: True:cond_9 - (line 401)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 110)]\n",
+                "[Branch: if-ne v0, v7, :cond_0 - (line 75)]\n",
+                "[Branch: if-ne v10, v11, :cond_1 - (line 99)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_a - (line 408)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.hlcsdev.x.shoppinglist\\c62322923ee7a7de",
+            "block": [
+                "[TAG: True:cond_0 - (line 1311)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 1296)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_0 - (line 1289)]\n",
+                    "[Branch: if-ge v0, v2, :cond_1 - (line 1296)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.hlcsdev.x.shoppinglist\\dd3faea30d67a32c",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez p1, :cond_0 - (line 1649)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_b - (line 1817)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 1653)]\n",
+                    "[Branch: if-eqz v0, :cond_1 - (line 1657)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.theappnerds.wiseup": [],
+    "com.starz_ven.rajvanyr": [],
+    "com.stumblemall": [],
+    "com.github.axet.hourlyreminder": [
+        {
+            "location": "./dcfg\\com.github.axet.hourlyreminder\\6fb27139b749f0c1",
+            "block": [
+                "[TAG: False:cond_4 - (line 492)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_e - (line 431)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_2 - (line 496)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.emm.app.masteranylanguage.farsi": [],
+    "de.sammysoft.consumption": [
+        {
+            "location": "./dcfg\\de.sammysoft.consumption\\9287525efb6be51f",
+            "block": [
+                "[Method START]\n",
+                "[TARGET API CALL: Landroid/widget/RadioButton;->isChecked()Z - (line 50)]\n",
+                "[Branch: if-eqz v1, :cond_0 - (line 55)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 55)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 65)]\n",
+                    "[TARGET API CALL: Landroid/widget/RadioButton;->isChecked()Z - (line 68)]\n",
+                    "[Branch: if-eqz v1, :cond_1 - (line 72)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.kodam.child.kidsafe.browser": [],
+    "com.androidtool.selectcontactnumber.checkphone.beingvalidinvalid.validatecontact": [],
+    "com.codebear.random_list": [],
+    "com.kholaygroup.covid_19tracker": [],
+    "nl.winterblend.winterblendquiz": [],
+    "br.ici.corrida3.view": [],
+    "com.blood.bloodbank.newbank": [],
+    "ramya.xtremecoders.awhile": [],
+    "com.cakemakeappp.appandappcakemakeappbake": [],
+    "com.acrylplatform.client": [],
+    "com.innovapps.cursodecoaching": [],
+    "ca.myfirstresponse.cdems": [],
+    "com.DrMoPhysics": [],
+    "navi.android.my_launcher": [],
+    "com.training.aamc": [],
+    "com.gmail.coolapps726.bankTester": [],
+    "com.yiftach_rak.www.googleshortcutsbeta": [],
+    "ca.myfirstresponse.sudburyemsfire": [],
+    "io.github.neomsoft.associativeswipe": [],
+    "request.android": [],
+    "com.raincontinues.transarde": [],
+    "ir.museumhikers.musem": [],
+    "com.vitanaschools03.thecreedacademy": [],
+    "nl.candosoft.lifebalance": [],
+    "net.t3nro.browserpicker": [],
+    "com.jakepolatty.highschoolsciencebowlpractice": [
+        {
+            "location": "./dcfg\\com.jakepolatty.highschoolsciencebowlpractice\\7cc86825982e76ac",
+            "block": [
+                "[TAG: False:cond_0 - (line 204)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_5 - (line 394)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_2 - (line 266)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.jsands.joaosantos.websocketclient": [],
+    "com.perfectSys.psl": [],
+    "com.efa.fororiza": [],
+    "io.github.visnkmr.bapl": [
+        {
+            "location": "./dcfg\\io.github.visnkmr.bapl\\2d2211f4a76f8382",
+            "block": [
+                "[TAG: True:cond_1 - (line 325)]\n",
+                "[Branch: if-nez v22, :cond_0 - (line 332)]\n",
+                "[Branch: if-eqz v22, :cond_1 - (line 315)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 288)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1 - (line 325)]\n",
+                    "[Branch: if-nez v22, :cond_0 - (line 332)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\io.github.visnkmr.bapl\\2d2211f4a76f8382",
+            "block": [
+                "[TAG: True:cond_0 - (line 288)]\n",
+                "[TARGET API CALL: Landroid/database/Cursor;->getString(I)Ljava/lang/String; - (line 304)]\n",
+                "[Branch: if-eqz v22, :cond_1 - (line 315)]\n",
+                "[Branch: if-eqz v22, :cond_1 - (line 315)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 288)]\n",
+                "[Branch: if-nez v22, :cond_0 - (line 332)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1 - (line 325)]\n",
+                    "[Branch: if-nez v22, :cond_0 - (line 332)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\io.github.visnkmr.bapl\\2d2211f4a76f8382",
+            "block": [
+                "[TAG: True:cond_1 - (line 325)]\n",
+                "[Branch: if-nez v22, :cond_0 - (line 332)]\n",
+                "[Branch: if-nez v22, :cond_0 - (line 332)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_1 - (line 325)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 288)]\n",
+                    "[TARGET API CALL: Landroid/database/Cursor;->getString(I)Ljava/lang/String; - (line 304)]\n",
+                    "[Branch: if-eqz v22, :cond_1 - (line 315)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\io.github.visnkmr.bapl\\2d2211f4a76f8382",
+            "block": [
+                "[TAG: True:cond_1 - (line 325)]\n",
+                "[TARGET API CALL: Landroid/database/Cursor;->getString(I)Ljava/lang/String; - (line 304)]\n",
+                "[Branch: if-eqz v22, :cond_1 - (line 315)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 288)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1 - (line 325)]\n",
+                    "[Branch: if-nez v22, :cond_0 - (line 332)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\io.github.visnkmr.bapl\\563abff6ec4d9af6",
+            "block": [
+                "[TAG: True:cond_0 - (line 112)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_1 - (line 262)]\n",
+                "[Branch: if-nez p10, :cond_2 - (line 280)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_0 - (line 121)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\io.github.visnkmr.bapl\\a5a5754718e433b3",
+            "block": [
+                "[TAG: True:cond_0 - (line 324)]\n",
+                "[Branch: if-nez v5, :cond_1 - (line 346)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_1 - (line 350)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_1 - (line 346)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\io.github.visnkmr.bapl\\d5f3130a9d209477",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v1, :cond_0 - (line 3550)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 3550)]\n",
+                "[Branch: if-lez v2, :cond_0 - (line 3555)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 3559)]\n",
+                    "[Branch: if-ne v2, v0, :cond_1 - (line 3585)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.pufa.oneside": [],
+    "com.radio.m8bd9ceaf8": [],
+    "com.mterp.citizen.calculator": [],
+    "com.ciiskills.assessment": [
+        {
+            "location": "./dcfg\\com.ciiskills.assessment\\06f6a1420c68be60",
+            "block": [
+                "[TAG: goto_0 - (line 379)]\n",
+                "[Branch: if-eqz v0, :cond_1 - (line 385)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 392)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_1 - (line 385)]\n",
+                    "[Branch: if-eqz v1, :cond_0 - (line 392)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.ciiskills.assessment\\b5cf898e88a84bb4",
+            "block": [
+                "[TAG: try_start_0 - (line 1013)]\n",
+                "[Branch: if-nez v0, :cond_0 - (line 1017)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 1033)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 1017)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.mqsoftwares.neboshigc": [],
+    "com.mobilinkd.tncconfig": [],
+    "com.apps.offbeat.colorpalette": [],
+    "com.github.fractals": [],
+    "kr.speedx": [
+        {
+            "location": "./dcfg\\kr.speedx\\c7e953a9075d73fc",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez v4, :cond_1b - (line 5224)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_1b - (line 6290)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_1b - (line 5224)]\n",
+                    "[Branch: if-eqz v4, :cond_1a - (line 5246)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.application.anasi.connect3": [],
+    "com.gnrdsoftsolution.news6teluguandroidapp": [],
+    "de.airportpark24.car_tour24": [],
+    "in.android.foneguru": [],
+    "com.notebook.idealabs.deepsearch": [
+        {
+            "location": "./dcfg\\com.notebook.idealabs.deepsearch\\70514983dd3f6a72",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eq v0, v1, :cond_2 - (line 494)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_2 - (line 494)]\n",
+                "[Branch: if-eq v0, v1, :cond_1 - (line 498)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_2 - (line 623)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.soccer_x.www.twa": [
+        {
+            "location": "./dcfg\\com.soccer_x.www.twa\\74d1b71a771efdef",
+            "block": [
+                "[TAG: False:cond_1 - (line 71)]\n",
+                "[Branch: if-eqz v1, :cond_3 - (line 84)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_3 - (line 84)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_3 - (line 122)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.salesreport": [],
+    "com.indiablo.diablo3paragoncalculator": [
+        {
+            "location": "./dcfg\\com.indiablo.diablo3paragoncalculator\\31b0acd71e1f38b8",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez p1, :cond_0 - (line 83)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 83)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 90)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.indiablo.diablo3paragoncalculator\\fcba9153b633ef15",
+            "block": [
+                "[TAG: False:cond_10 - (line 794)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_6 - (line 849)]\n",
+                "[Branch: if-ne v6, v0, :cond_c - (line 866)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_5,goto_2 - (line 787)]\n",
+                    "[Branch: if-nez v14, :cond_10 - (line 794)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.indiablo.diablo3paragoncalculator\\fcba9153b633ef15",
+            "block": [
+                "[TAG: True:cond_12 - (line 1210)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_6 - (line 849)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_5 - (line 1233)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.gcart.android.seraphim": [],
+    "com.pennmike.app": [
+        {
+            "location": "./dcfg\\com.pennmike.app\\689e2e199b665771",
+            "block": [
+                "[TAG: sswitch_0 - (line 137)]\n",
+                "[Branch: if-eqz v1, :cond_1 - (line 145)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 145)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1 - (line 156)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.programming.monk.morsecodetranslator": [],
+    "com.sppgc.sardarpatelpgcollege": [],
+    "com.kwaso.recorder": [
+        {
+            "location": "./dcfg\\com.kwaso.recorder\\187e864b8e7ef269",
+            "block": [
+                "[TAG: True:cond_3 - (line 2843)]\n",
+                "[Branch: if-nez v5, :cond_9 - (line 2882)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_d,goto_4 - (line 3214)]\n",
+                "[Branch: if-nez v24, :cond_e - (line 3226)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_9 - (line 3131)]\n",
+                    "[Branch: if-eqz v5, :cond_a - (line 3136)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.kwaso.recorder\\e48d74276f0692f4",
+            "block": [
+                "[TAG: True:cond_7 - (line 1823)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_2 - (line 1786)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_3 - (line 1826)]\n",
+                    "[Branch: if-eqz v5, :cond_8 - (line 1827)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.cmusical.pc.culturamusical": [],
+    "nl.mijnschoolinfo.obsannefrank": [],
+    "com.concept2.ergdata": [],
+    "com.sseam.android.torch": [],
+    "com.automaticdocs.serviceagreement": [],
+    "com.mehdira.squarekilometerandacrekm2acconvertor": [],
+    "com.osmanli.kilotakip": [],
+    "infofixsolution.com.demon": [],
+    "com.lovemaths.lovemaths_eclair": [],
+    "com.KSAebuy.app": [],
+    "com.bowtiemedia.verbouwen": [],
+    "ru.free.esplus": [
+        {
+            "location": "./dcfg\\ru.free.esplus\\b08bbe1145a5925e",
+            "block": [
+                "[TAG: try_end_3->:catch_0 - (line 48911)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: sswitch_2,try_start_18 - (line 49568)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: sswitch_4,try_start_2c - (line 50210)]\n",
+                    "[Branch: if-nez v7, :cond_a - (line 50277)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\ru.free.esplus\\ba89ccd19c43581b",
+            "block": [
+                "[TAG: try_end_4->:catch_0 - (line 48403)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: sswitch_2,try_start_7 - (line 48459)]\n",
+                "[TARGET API CALL: Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V - (line 48475)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: sswitch_4,try_start_9 - (line 48503)]\n",
+                    "[TARGET API CALL: Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V - (line 48519)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\ru.free.esplus\\cccdc5098c59c08c",
+            "block": [
+                "[TAG: try_end_3->:catch_0 - (line 2625)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: sswitch_3,try_start_12 - (line 2817)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: sswitch_5,try_start_1c - (line 2953)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.frankburmo": [
+        {
+            "location": "./dcfg\\com.frankburmo\\1cdf0501c198b36a",
+            "block": [
+                "[TAG: False:cond_0 - (line 385)]\n",
+                "[Branch: if-eqz v7, :cond_0 - (line 390)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 390)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 405)]\n"
+                ]
+            ]
+        }
+    ],
+    "buzzgrillindian.co.uk": [],
+    "com.lunotech.app": [],
+    "br.com.audiobras.consagracaomp3": [],
+    "com.hvt.camera2test": [],
+    "trex.tv.baharturktv.mobile": [],
+    "de.tobiasbielefeld.brickgames": [],
+    "kr.co.webation.realserver1": [],
+    "nl.sitedish.jodl": [],
+    "com.badep.demoodoo": [],
+    "com.framesizecalculator": [],
+    "com.coconut_apps.stewartfrancisjokes": [],
+    "com.myworldrules.newearth.earth": [],
+    "com.health.mcardiac": [],
+    "com.birnepal.sciencekoguide": [
+        {
+            "location": "./dcfg\\com.birnepal.sciencekoguide\\0a1a0c86fc452b50",
+            "block": [
+                "[TAG: False:cond_1 - (line 234)]\n",
+                "[Branch: if-eqz v15, :cond_0 - (line 273)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_1 - (line 294)]\n",
+                "[Branch: if-ge v3, v8, :cond_1 - (line 234)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 287)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.smartdeveloper000.reelsvideodownloaderforinstagram": [
+        {
+            "location": "./dcfg\\com.smartdeveloper000.reelsvideodownloaderforinstagram\\13d345d5ab7c83e9",
+            "block": [
+                "[Branch: if-lez v3, :cond_4 - (line 542)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_6 - (line 589)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_4 - (line 542)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.darnijood.app": [
+        {
+            "location": "./dcfg\\com.darnijood.app\\450aa03c905240ad",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v0, :cond_0 - (line 61)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 61)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 69)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.darnijood.app\\c312ae160abea520",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez v1, :cond_1 - (line 416)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 416)]\n",
+                "[Branch: if-eqz v1, :cond_0 - (line 427)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1,goto_0 - (line 436)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.darnijood.app\\cf4d097c9343d03b",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez v1, :cond_0 - (line 103)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 107)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 103)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.darnijood.app\\dfb8553f830d5daf",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v0, :cond_0 - (line 657)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 657)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 663)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.darnijood.app\\e9da6d436ac7f33e",
+            "block": [
+                "[TAG: True:cond_2 - (line 643)]\n",
+                "[Branch: if-eqz v2, :cond_3 - (line 650)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_3 - (line 650)]\n",
+                "[TARGET API CALL: Ljava/util/Locale;->getCountry()Ljava/lang/String; - (line 667)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_3 - (line 677)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.visualhdstudio.autoload": [],
+    "com.beeflash.HotePenginapan": [],
+    "com.gkarbeerlover.giorgoskaryofyllis.beerlover": [],
+    "com.apps.garwoodattributes.monetonsea": [],
+    "nascenia.robi.com.digired": [],
+    "com.atmiyafadia.game.clickspeedtest": [],
+    "nl.sitedish.lapizzaklazienaveen": [],
+    "es.hol.ing.ninochka": [],
+    "com.pixel_nest.stockagent2": [
+        {
+            "location": "./dcfg\\com.pixel_nest.stockagent2\\78e0be01c8c31c02",
+            "block": [
+                "[TAG: False:cond_0 - (line 1098)]\n",
+                "[Branch: if-lez v8, :cond_0 - (line 1118)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 749)]\n",
+                "[Branch: if-nez v8, :cond_1 - (line 758)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 1118)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.loeffler.votebeacon": [
+        {
+            "location": "./dcfg\\com.loeffler.votebeacon\\3a6fad29b33eb9e9",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-lez v5, :cond_3 - (line 1243)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_3 - (line 1243)]\n",
+                "[TARGET API CALL: Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent; - (line 1302)]\n",
+                "[TARGET API CALL: Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent; - (line 1317)]\n",
+                "[Branch: if-lt v0, v1, :cond_1 - (line 1410)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_3 - (line 1631)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.loeffler.votebeacon\\7d0085b2d8fe72bf",
+            "block": [
+                "[TAG: True:cond_1 - (line 2248)]\n",
+                "[Branch: if-nez v2, :cond_2 - (line 2255)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_2 - (line 2269)]\n",
+                "[Branch: if-eqz v3, :cond_3 - (line 2275)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_2 - (line 2255)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.loeffler.votebeacon\\c3921981486fa263",
+            "block": [
+                "[TAG: True:cond_0 - (line 225)]\n",
+                "[Branch: if-nez v3, :cond_1 - (line 234)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_1 - (line 240)]\n",
+                "[Branch: if-eqz v0, :cond_2 - (line 249)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_1 - (line 234)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.oceanicsa.unoventas": [],
+    "com.ST.CELL": [],
+    "ohms.com.ohms": [],
+    "com.bloomaxer.scribblerider_game_guide": [],
+    "com.gilisztaturmixgmail.locus_addon_pebble": [],
+    "com.luckiespetstore.app": [],
+    "com.motivateinspirevids.inspireme": [
+        {
+            "location": "./dcfg\\com.motivateinspirevids.inspireme\\11c5031b627536f7",
+            "block": [
+                "[TAG: True:cond_1 - (line 273)]\n",
+                "[Branch: if-ge v5, v4, :cond_2 - (line 194)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0,goto_1 - (line 209)]\n",
+                "[Branch: if-eqz v10, :cond_1 - (line 216)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_2 - (line 194)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.motivateinspirevids.inspireme\\b6bdb4202b2c79f6",
+            "block": [
+                "[TAG: False:cond_0 - (line 840)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 873)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_0 - (line 834)]\n",
+                    "[Branch: if-eqz v2, :cond_0 - (line 840)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.motivateinspirevids.inspireme\\be6926b80e9ce57b",
+            "block": [
+                "[TAG: False:cond_0 - (line 73)]\n",
+                "[Branch: if-eqz v1, :cond_0 - (line 75)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 75)]\n",
+                "[Branch: if-eqz v2, :cond_0 - (line 81)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 87)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.motivateinspirevids.inspireme\\f2caab3bda90031b",
+            "block": [
+                "[TAG: goto_0 - (line 133)]\n",
+                "[Branch: if-eqz v6, :cond_11 - (line 134)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_11 - (line 776)]\n",
+                "[Branch: if-eqz v33, :cond_12 - (line 787)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_11 - (line 134)]\n",
+                    "[Branch: if-eqz v11, :cond_1 - (line 146)]\n"
+                ]
+            ]
+        }
+    ],
+    "sk.blade.globalvibratetoggledemo": [],
+    "com.wiki.tours": [],
+    "com.richanngolf.richanngolf": [],
+    "com.yarapps.applockwinter": [],
+    "com.turbomedia.android": [
+        {
+            "location": "./dcfg\\com.turbomedia.android\\201977bac8ec6598",
+            "block": [
+                "[TAG: True:cond_0 - (line 2133)]\n",
+                "[Branch: if-eqz v1, :cond_1 - (line 2141)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_1,goto_0 - (line 2157)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_1 - (line 2141)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.dakshapps.junglewaterfall": [
+        {
+            "location": "./dcfg\\com.dakshapps.junglewaterfall\\1d67203a517410ef",
+            "block": [
+                "[TAG: False:cond_0 - (line 113)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: catch_0 - (line 144)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: try_start_0 - (line 127)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.dakshapps.junglewaterfall\\34abe838869ec15e",
+            "block": [
+                "[TAG: True:cond_0 - (line 1046)]\n",
+                "[Branch: if-eqz v9, :cond_1 - (line 1063)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_1 - (line 1104)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_1 - (line 1063)]\n",
+                    "[Branch: if-nez p6, :cond_1 - (line 1065)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.dakshapps.junglewaterfall\\351039a8f46b1009",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz p1, :cond_0 - (line 1372)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 1372)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 1380)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.dakshapps.junglewaterfall\\351039a8f46b1009",
+            "block": [
+                "[TAG: False:cond_1 - (line 1391)]\n",
+                "[Branch: if-eqz p1, :cond_2 - (line 1397)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_2 - (line 1420)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_2 - (line 1397)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.dakshapps.junglewaterfall\\792e14f3150e0913",
+            "block": [
+                "[TAG: False:cond_1 - (line 85)]\n",
+                "[Branch: if-ne p1, v1, :cond_2 - (line 91)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_2 - (line 106)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_2 - (line 91)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.dakshapps.junglewaterfall\\bd05ac47f478c653",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez v0, :cond_8 - (line 735)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_8,goto_2 - (line 1182)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_8 - (line 735)]\n",
+                    "[Branch: if-eqz p0, :cond_7 - (line 737)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.dakshapps.junglewaterfall\\f2caab3bda90031b",
+            "block": [
+                "[TAG: goto_0 - (line 128)]\n",
+                "[Branch: if-eqz v4, :cond_12 - (line 129)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_12 - (line 800)]\n",
+                "[Branch: if-eqz v34, :cond_13 - (line 811)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_12 - (line 129)]\n",
+                    "[Branch: if-eqz v9, :cond_1 - (line 144)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.lab.flashlight.buddhalight6": [
+        {
+            "location": "./dcfg\\com.lab.flashlight.buddhalight6\\3b90b19dd8303ccb",
+            "block": [
+                "[Method START]\n",
+                "[TARGET API CALL: Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V - (line 1764)]\n",
+                "[Branch: if-eq v0, v4, :cond_0 - (line 1771)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 1775)]\n",
+                "[Branch: if-eq v0, v6, :cond_3 - (line 1785)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 1771)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.ciopec.vremea": [],
+    "com.ruleoffun.ebd": [],
+    "taleb.elhadi.ntbApp": [],
+    "com.wetracker.wetracker": [],
+    "com.exampl.alldecadesrado": [],
+    "net.myappy.charterchecklist": [],
+    "com.ddangman.anythinggoespaint": [],
+    "fr.sitronman.geochampi": [],
+    "aait.sa.aspbranch.semsem": [],
+    "com.jmvtechnology.fmradiocidadedosol": [],
+    "com.speakinghoroscope": [],
+    "mobile.audiorecorder": [],
+    "cst.stJoseph.SURESH": [],
+    "com.apinjari.chargerremovalalarm": [],
+    "com.reach.reacherp": [],
+    "br.com.routing.android": [],
+    "com.comself.cameravideo": [],
+    "sitinoldae.qlauncher": [],
+    "jp.golddisc.z80cheatsheet": [],
+    "com.baasgeo.cogoBeta": [
+        {
+            "location": "./dcfg\\com.baasgeo.cogoBeta\\2ce0d3c5b964c640",
+            "block": [
+                "[TAG: False:cond_1 - (line 71)]\n",
+                "[Branch: if-eqz v1, :cond_3 - (line 84)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_3 - (line 84)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_3 - (line 122)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "deltagamabeta.cesketelevizevmobile": [],
+    "com.loopcupcakes.invested": [],
+    "com.lockup.Lockup": [
+        {
+            "location": "./dcfg\\com.lockup.Lockup\\2da809a9001d9768",
+            "block": [
+                "[TAG: False:cond_0 - (line 1098)]\n",
+                "[Branch: if-lez v8, :cond_0 - (line 1118)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 749)]\n",
+                "[Branch: if-nez v8, :cond_1 - (line 758)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 1118)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.gst.ihab.gst": [],
+    "com.activspaces.labs.bizcard": [],
+    "com.diabetesid": [],
+    "com.datinglove.pet2": [],
+    "com.cygnus.calendar": [],
+    "com.shyri.whitescreenapp": [
+        {
+            "location": "./dcfg\\com.shyri.whitescreenapp\\e03dedc219494c74",
+            "block": [
+                "[TAG: goto_1 - (line 152)]\n",
+                "[TARGET API CALL: Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V - (line 160)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: try_end_0->:catch_2 - (line 198)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: try_start_0 - (line 188)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.shyri.whitescreenapp\\f0cdab5786246a02",
+            "block": [
+                "[TAG: try_start_0 - (line 903)]\n",
+                "[TARGET API CALL: Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class; - (line 906)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_0 - (line 915)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: catch_0 - (line 930)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.softsysworl.hajumracouncil": [],
+    "com.abanista.android": [
+        {
+            "location": "./dcfg\\com.abanista.android\\74d1b71a771efdef",
+            "block": [
+                "[TAG: False:cond_1 - (line 71)]\n",
+                "[Branch: if-eqz v1, :cond_3 - (line 84)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_3 - (line 84)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_3 - (line 122)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "ioapp.ionic.starter": [],
+    "ca.myfirstresponse.ipco": [],
+    "com.malseriesguideextension": [],
+    "com.uppasocial": [],
+    "com.app.todosfolletoscanarias": [
+        {
+            "location": "./dcfg\\com.app.todosfolletoscanarias\\1c3122fa08671ada",
+            "block": [
+                "[Method START]\n",
+                "[TARGET API CALL: Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V - (line 88)]\n",
+                "[TARGET API CALL: Ljava/io/File;->exists()Z - (line 90)]\n",
+                "[Branch: if-eqz v8, :cond_0 - (line 95)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 95)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0,try_start_0 - (line 99)]\n",
+                    "[TARGET API CALL: Ljava/io/File;->createNewFile()Z - (line 101)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.app.todosfolletoscanarias\\201a5e36452b3163",
+            "block": [
+                "[TAG: True:cond_c - (line 551)]\n",
+                "[Branch: if-nez v20, :cond_d - (line 592)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_6 - (line 604)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_d - (line 596)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.app.todosfolletoscanarias\\201a5e36452b3163",
+            "block": [
+                "[TAG: False:cond_e - (line 448)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_a,goto_4 - (line 504)]\n",
+                "[Branch: if-eqz v11, :cond_9 - (line 512)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_9 - (line 466)]\n",
+                    "[Branch: if-eqz v11, :cond_8 - (line 473)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.app.todosfolletoscanarias\\201a5e36452b3163",
+            "block": [
+                "[TAG: False:cond_21 - (line 1244)]\n",
+                "[Branch: if-eqz v11, :cond_1f - (line 1272)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_21 - (line 1244)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_1f - (line 1272)]\n"
+                ],
+                [
+                    "[TAG: True:cond_1f - (line 1276)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.app.todosfolletoscanarias\\201a5e36452b3163",
+            "block": [
+                "[TAG: goto_0 - (line 175)]\n",
+                "[Branch: if-eqz v11, :cond_0 - (line 181)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 181)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 204)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.app.todosfolletoscanarias\\201a5e36452b3163",
+            "block": [
+                "[TAG: False:cond_11 - (line 718)]\n",
+                "[Branch: if-eqz v11, :cond_10 - (line 736)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_11 - (line 718)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_10,goto_8 - (line 712)]\n",
+                    "[Branch: if-eqz v11, :cond_11 - (line 718)]\n"
+                ],
+                [
+                    "[TAG: False:cond_10 - (line 736)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.app.todosfolletoscanarias\\201a5e36452b3163",
+            "block": [
+                "[TAG: False:cond_14 - (line 756)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_12 - (line 749)]\n",
+                "[Branch: if-eqz v11, :cond_12 - (line 802)]\n",
+                "[Branch: if-nez v11, :cond_14 - (line 756)]\n",
+                "[Branch: if-eqz v11, :cond_13 - (line 834)]\n",
+                "[Branch: if-eqz v11, :cond_12 - (line 802)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_13,goto_9 - (line 796)]\n",
+                    "[Branch: if-eqz v11, :cond_12 - (line 802)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.app.todosfolletoscanarias\\201a5e36452b3163",
+            "block": [
+                "[TAG: True:cond_14 - (line 844)]\n",
+                "[Branch: if-ne v0, v1, :cond_23 - (line 853)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_a - (line 859)]\n",
+                "[Branch: if-eqz v11, :cond_15 - (line 864)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_23 - (line 853)]\n"
+                ]
+            ]
+        }
+    ],
+    "io.appground.blek": [
+        {
+            "location": "./dcfg\\io.appground.blek\\d0da33d5285d875c",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez v2, :cond_2 - (line 103)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_2 - (line 171)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_2 - (line 103)]\n",
+                    "[TARGET API CALL: Ljava/lang/Class;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation; - (line 107)]\n",
+                    "[Branch: if-eqz v6, :cond_0 - (line 119)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.viptronica.viptronicaapp": [],
+    "com.weclean4you.weclean4you": [],
+    "com.translatteh.com": [],
+    "com.parsveda.brainboost.reverseanswer": [
+        {
+            "location": "./dcfg\\com.parsveda.brainboost.reverseanswer\\533b5bcd03340bec",
+            "block": [
+                "[TAG: goto_0 - (line 40)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 46)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_0 - (line 40)]\n",
+                    "[Branch: if-eqz v2, :cond_0 - (line 46)]\n"
+                ]
+            ]
+        }
+    ],
+    "utility.com.scoutdictionary": [],
+    "com.netsells.rina_affairs": [],
+    "com.sandello.ndscalculator": [],
+    "com.frederic.distanceAlarme": [],
+    "com.euromilons.app": [
+        {
+            "location": "./dcfg\\com.euromilons.app\\17e9fe7e1977e296",
+            "block": [
+                "[TAG: False:cond_5 - (line 369)]\n",
+                "[Branch: if-eq v8, v13, :cond_6 - (line 397)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_3 - (line 441)]\n",
+                "[Branch: if-eq v13, v0, :cond_8 - (line 501)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_6 - (line 425)]\n"
+                ],
+                [
+                    "[TAG: False:cond_6 - (line 397)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.euromilons.app\\17e9fe7e1977e296",
+            "block": [
+                "[TAG: True:cond_a - (line 571)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_4 - (line 221)]\n",
+                "[Branch: if-eq v0, v1, :cond_3 - (line 274)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: goto_6 - (line 632)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.euromilons.app\\17e9fe7e1977e296",
+            "block": [
+                "[TAG: goto_8 - (line 782)]\n",
+                "[Branch: if-ge v13, v9, :cond_e - (line 785)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_7 - (line 347)]\n",
+                "[Branch: if-ne v0, v13, :cond_2 - (line 148)]\n",
+                "[Branch: if-eq v13, v0, :cond_c - (line 212)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_e - (line 785)]\n"
+                ],
+                [
+                    "[TAG: True:cond_e - (line 821)]\n",
+                    "[Branch: if-ne v0, v1, :cond_10 - (line 829)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.euromilons.app\\3dd9c2c8c4e22cb6",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-ne v2, v3, :cond_0 - (line 1805)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 1805)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 1811)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.euromilons.app\\8bb7fa07a37f98ca",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v2, :cond_0 - (line 1837)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 1837)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 1844)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.euromilons.app\\c81411676011ea07",
+            "block": [
+                "[Branch: if-ne v10, v11, :cond_0 - (line 1109)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 1109)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 1115)]\n",
+                    "[Branch: if-ge v0, v1, :cond_1 - (line 1120)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.euromilons.app\\fa8ea25d89c6fdbf",
+            "block": [
+                "[TAG: goto_1 - (line 1134)]\n",
+                "[Branch: if-ge v8, v0, :cond_2 - (line 1141)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_2 - (line 1141)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_2 - (line 1166)]\n",
+                    "[Branch: if-eqz v8, :cond_a - (line 1186)]\n"
+                ]
+            ]
+        }
+    ],
+    "za.drlocustfinance": [],
+    "com.ucoin.dateconverter": [
+        {
+            "location": "./dcfg\\com.ucoin.dateconverter\\668a4e2db4a6dc18",
+            "block": [
+                "[TAG: True:cond_6 - (line 848)]\n",
+                "[Branch: if-eqz v5, :cond_7 - (line 857)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_7 - (line 1309)]\n",
+                "[Branch: if-eqz v5, :cond_8 - (line 1318)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_7 - (line 857)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.alienshome.alabrat": [
+        {
+            "location": "./dcfg\\com.alienshome.alabrat\\2ef3860c74468bb0",
+            "block": [
+                "[TAG: False:cond_6 - (line 2473)]\n",
+                "[Branch: if-eqz p3, :cond_6 - (line 2475)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_6 - (line 2515)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_6 - (line 2475)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.alienshome.alabrat\\e251800f50f55be7",
+            "block": [
+                "[TAG: True:cond_5 - (line 1598)]\n",
+                "[Branch: if-eqz v8, :cond_6 - (line 1599)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_6 - (line 1599)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_6 - (line 1605)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "ahman.timo.tatargetfinder": [],
+    "com.pentawire.netlook": [],
+    "com.ukrainestudios.cpsc": [],
+    "com.ilearn.chromecustomtab": [],
+    "eu.bansko_gevgelija.app": [],
+    "com.bari.bandhan": [],
+    "com.elisoft.soaphandmade": [
+        {
+            "location": "./dcfg\\com.elisoft.soaphandmade\\3c79acd564294ab2",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez v14, :cond_2 - (line 226)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_2 - (line 226)]\n",
+                "[Branch: if-nez v14, :cond_2 - (line 232)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_2 - (line 259)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.gcart.android.deron": [],
+    "com.gocalsd.quicktile.launchers": [],
+    "de.musoftmedia.deutschtrainer_a1_a2": [],
+    "com.talmidimteologia.turma.twa": [
+        {
+            "location": "./dcfg\\com.talmidimteologia.turma.twa\\74d1b71a771efdef",
+            "block": [
+                "[TAG: False:cond_1 - (line 71)]\n",
+                "[Branch: if-eqz v1, :cond_3 - (line 84)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_3 - (line 84)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_3 - (line 122)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "net.classicelectronic.sms": [],
+    "com.diemagd.interestcalculator": [
+        {
+            "location": "./dcfg\\com.diemagd.interestcalculator\\3f20a3f03a78f51f",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eq v0, p1, :cond_0 - (line 406)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 406)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 414)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.diemagd.interestcalculator\\59cbe15128c4ece2",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-nez v2, :cond_0 - (line 1478)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 1489)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 1478)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.diemagd.interestcalculator\\7551ba9833b8ba69",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eq v0, p1, :cond_0 - (line 198)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 198)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 206)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.diemagd.interestcalculator\\a2846a46f48b2500",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz p1, :cond_2 - (line 1748)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_2 - (line 1748)]\n",
+                "[Branch: if-eq p1, v2, :cond_1 - (line 1752)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_2 - (line 1770)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.diemagd.interestcalculator\\cbcb86492fde0aea",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v0, :cond_0 - (line 391)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 391)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 395)]\n",
+                    "[Branch: if-eqz v2, :cond_1 - (line 403)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.hotlunchorders.hotlunchorders": [],
+    "com.ravelroads.kailash": [],
+    "com.joticle.christology": [],
+    "com.qict.androidapp": [],
+    "config.gg.com.appconfigandroid": [],
+    "com.mjapplabs.tinybrightledflashlight": [],
+    "com.centermatwrestling.app": [],
+    "com.indiamatrix.saimaja": [],
+    "thegoodshot.sandip.com.thegoodshot": [],
+    "com.raiiware.interceptor": [],
+    "com.tiempo_english.rob": [],
+    "ua.com.gpsradar.gpsrb": [],
+    "com.krnhhd2.player": [],
+    "dcunlocker.com.huaweiunlock2": [],
+    "kr.ac.yjc.comwdj.andrstudy.babesleep": [],
+    "com.nativecamp.nativecampforteachers": [],
+    "com.rapidapper.qrscanner": [],
+    "com.aliexpress.india": [],
+    "com.mpsystemstore.iwaiter": [],
+    "app.wise.passwordgenerator": [],
+    "free.girls.chat": [],
+    "com.grc.lhc": [],
+    "valhalldev.mwst": [],
+    "nl.onlineafspraken.android.bodyteccenter": [
+        {
+            "location": "./dcfg\\nl.onlineafspraken.android.bodyteccenter\\9e066e478257b061",
+            "block": [
+                "[TAG: try_start_1 - (line 113)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: try_end_1->:catch_0 - (line 117)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: catch_0 - (line 172)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "misol.alex.buttonfrontier": [],
+    "ru.intour_online.intourist": [],
+    "www.munna.checkapp": [
+        {
+            "location": "./dcfg\\www.munna.checkapp\\2e06c7c47c8b085b",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v1, :cond_0 - (line 724)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 747)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 724)]\n",
+                    "[Branch: if-eqz v2, :cond_0 - (line 735)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\www.munna.checkapp\\5b63a5a25ae761f0",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v0, :cond_0 - (line 333)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 333)]\n",
+                "[Branch: if-gt v1, p1, :cond_2 - (line 338)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 340)]\n",
+                    "[Branch: if-eqz v0, :cond_1 - (line 346)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\www.munna.checkapp\\5b63a5a25ae761f0",
+            "block": [
+                "[TAG: True:cond_0 - (line 340)]\n",
+                "[Branch: if-eqz v0, :cond_1 - (line 346)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_1 - (line 346)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_1 - (line 356)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\www.munna.checkapp\\61022e9e798a40d3",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v1, :cond_9 - (line 57)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_9 - (line 57)]\n",
+                "[Branch: if-le v2, v4, :cond_1 - (line 67)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_9 - (line 201)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.doionline.flashlight": [],
+    "statusfacebook.vvidmate.allvideodownloader": [],
+    "com.simplaapliko.converter": [
+        {
+            "location": "./dcfg\\com.simplaapliko.converter\\4580bb0c5973df5e",
+            "block": [
+                "[TAG: False:cond_0 - (line 167)]\n",
+                "[Branch: if-nez v1, :cond_0 - (line 177)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 177)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 183)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.simplaapliko.converter\\d9464ee30da865f5",
+            "block": [
+                "[TAG: try_start_0 - (line 1161)]\n",
+                "[Branch: if-nez v0, :cond_0 - (line 1165)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 1181)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 1165)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.completegardencuttings.adeknata": [],
+    "athithi.gruha.foods": [],
+    "com.narb.passwordmanagement": [
+        {
+            "location": "./dcfg\\com.narb.passwordmanagement\\b961b7cb75b115b1",
+            "block": [
+                "[Method START]\n",
+                "[TARGET API CALL: Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z - (line 1000)]\n",
+                "[Branch: if-eqz v9, :cond_0 - (line 1005)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 1027)]\n",
+                "[Branch: if-eqz v9, :cond_1 - (line 1034)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 1005)]\n"
+                ]
+            ]
+        }
+    ],
+    "tax.almaliki.soft": [],
+    "com.arabwomensports.sport": [],
+    "com.rclaret1.player": [],
+    "org.js.oledsaver": [],
+    "com.malicankaya.edirne_nobetci_eczaneler": [],
+    "com.tunzor.ssls": [
+        {
+            "location": "./dcfg\\com.tunzor.ssls\\197f175c12f505bc",
+            "block": [
+                "[TAG: False:cond_0 - (line 99)]\n",
+                "[Branch: if-eqz v2, :cond_1 - (line 109)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_1 - (line 116)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_1 - (line 109)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.tunzor.ssls\\c60a0780d505c125",
+            "block": [
+                "[Method START]\n",
+                "[Branch: if-eqz v8, :cond_0 - (line 107)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: True:cond_0 - (line 132)]\n",
+                "[Branch: if-nez v8, :cond_1 - (line 155)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 107)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "com.QRCode.SK": [],
+    "ru.imilka.randomfact": [],
+    "com.plena507.plena507": [],
+    "com.shubhmpro.biologymcq_11": [],
+    "com.iamadeel.resultcheck": [],
+    "lida.com.lida": [],
+    "supercurio.headphones.app": [],
+    "jp.co.opto.opn.opnime2": [],
+    "com.dayna.yourloancalculator": [
+        {
+            "location": "./dcfg\\com.dayna.yourloancalculator\\08f6bf53886d772f",
+            "block": [
+                "[Method START]\n",
+                "[TARGET API CALL: Landroid/app/Activity;->findViewById(I)Landroid/view/View; - (line 137)]\n",
+                "[TARGET API CALL: Landroid/app/Activity;->findViewById(I)Landroid/view/View; - (line 155)]\n",
+                "[TARGET API CALL: Landroid/app/Activity;->findViewById(I)Landroid/view/View; - (line 171)]\n",
+                "[Branch: if-eqz v9, :cond_0 - (line 199)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_0 - (line 199)]\n",
+                "[TARGET API CALL: Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V - (line 203)]\n",
+                "[Method END]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_0 - (line 207)]\n",
+                    "[TARGET API CALL: Landroid/widget/TextView;->setText(I)V - (line 210)]\n",
+                    "[Method END]\n"
+                ]
+            ]
+        }
+    ],
+    "gob.osinergmin.dglp": [],
+    "com.aldea.oddscalculator": [
+        {
+            "location": "./dcfg\\com.aldea.oddscalculator\\d582f32b3d576f61",
+            "block": [
+                "[Branch: if-eqz v6, :cond_2 - (line 1998)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_2 - (line 2047)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_2 - (line 2004)]\n",
+                    "[Branch: if-ne v0, v8, :cond_3 - (line 2010)]\n"
+                ]
+            ]
+        },
+        {
+            "location": "./dcfg\\com.aldea.oddscalculator\\eb9452b3f4573e56",
+            "block": [
+                "[TAG: goto_4 - (line 1174)]\n",
+                "[Branch: if-gez v8, :cond_a - (line 1185)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: False:cond_2 - (line 793)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: True:cond_a - (line 1135)]\n",
+                    "[Branch: if-eqz v15, :cond_0 - (line 1142)]\n"
+                ],
+                [
+                    "[TAG: False:cond_a - (line 1185)]\n",
+                    "[Branch: if-nez v15, :cond_a - (line 1191)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.ad.tutorialoffice": [],
+    "com.ledger.live.managerapp": [],
+    "com.nippon.shogun": [],
+    "com.mynarski.mrev": [],
+    "com.anncleaners.anncleaners": [],
+    "interpessoal.zarza.br.com.lcapuano": [],
+    "com.magic.ultimate_android": [],
+    "weidoo.ultratipp": [],
+    "dongsan.church.viewer": [],
+    "ortsspiegel.emilen.com.ortsspiegel": [],
+    "com.myradarconnect.securemessenger": [],
+    "com.mexicojuegabasquetbol.app": [],
+    "an.MalayArabTranslate": [],
+    "com.iwillh.iwillhelp": [],
+    "org.pulpdust.da.aozora.em": [],
+    "com.henkes.puzzel": [],
+    "id.go.pekalongankota.ppip.ppidtransparansianggaran": [],
+    "com.jaskaran.freeweatherpro": [],
+    "nl.sitedish.kofusushi": [],
+    "in.oxeshop.oxeshop": [],
+    "com.rabbitcarrrot.jump": [],
+    "com.prueba.joel.sort": [],
+    "com.tappsolutions.calc_lsnic_joint": [],
+    "com.aiimspqms.mq": [],
+    "com.amullabanaenterprisess.multirecharge": [],
+    "com.shex.startfromzero_tagalog": [
+        {
+            "location": "./dcfg\\com.shex.startfromzero_tagalog\\9652df686da3007b",
+            "block": [
+                "[TAG: False:cond_0 - (line 247)]\n",
+                "[Branch: if-lez v2, :cond_0 - (line 247)]\n"
+            ],
+            "real_child_block": [
+                "[TAG: goto_0 - (line 241)]\n"
+            ],
+            "emu_child_blocks": [
+                [
+                    "[TAG: False:cond_0 - (line 247)]\n",
+                    "[TARGET API CALL: Ljava/io/OutputStream;->write([BII)V - (line 251)]\n"
+                ]
+            ]
+        }
+    ],
+    "com.app.occeramics": [],
+    "com.bf.esbettingtipapp": [],
+    "com.helpwork": [],
+    "com.sliding.ruler.o": [],
+    "org.sailonline.solclient": [],
+    "mindmine.audiobook": [],
+    "app.bpbonline": [],
+    "com.namit.nightmode": [],
+    "ru.rucobe.wheeloflifeoffline": [],
+    "com.auctionslive.bidding": [],
+    "com.tr.anadolu": [],
+    "com.a2sxd.aplikasi.namabayilaki_lakiislam": [],
+    "com.englistening.makeev.englisteningcom": [],
+    "summersedge23.com.circuitbreaker.lite": [],
+    "com.artharakshak.artharakshak": [],
+    "at.my_chauffeur.my_chauffeur": [],
+    "il.co.yoganow": [],
+    "com.siglimigliapps.benefitsofmeditation": [],
+    "nl.sitedish.maximiliano": [],
+    "com.wizardsexe.rockvillerobotics.roverruckusscoutingapp": []
+}
