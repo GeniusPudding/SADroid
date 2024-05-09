@@ -85,9 +85,9 @@ def find_evasion(app_logdir, app_evasions_dir, conn):
             if any(real_child_block[0] != other_child_block[0] for other_child_block in other_child_blocks):
                 continue
             
-            if {'location': basepath, 'block': real_block, 'real_child_block': real_child_block, 'emu_child_blocks': emu_child_blocks} not in evasion:
-                evasion.append({'location': basepath, 'block': real_block, 'real_child_block': real_child_block, 'emu_child_blocks': emu_child_blocks})
-                print(f'Find evasion:{real_block} belong to method:{basepath}, real_device_log_file:{real_device_log_file}, emu_device_log_file:{emu_device_log_file}')
+            if {'location': method_sign, 'block': real_block, 'real_child_block': real_child_block, 'emu_child_blocks': emu_child_blocks} not in evasion:
+                evasion.append({'location': method_sign, 'block': real_block, 'real_child_block': real_child_block, 'emu_child_blocks': emu_child_blocks})
+                print(f'Find evasion:{real_block} belong to method:{method_sign}, real_device_log_file:{real_device_log_file}, emu_device_log_file:{emu_device_log_file}')
                 print(f'Real device child block: {real_child_block}')
                 print(f'Emulator child blocks: {emu_child_blocks}')
     

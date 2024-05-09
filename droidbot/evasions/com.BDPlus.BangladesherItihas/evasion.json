@@ -1,1 +1,1 @@
-{"location": "./dcfg\\com.BDPlus.BangladesherItihas\\81e494fe139cab01", "block": ["[Method START]\n", "[Branch: if-eqz v0, :cond_0 - (line 2709)]\n"], "real_child_block": ["[TAG: False:cond_0 - (line 2709)]\n"], "emu_child_blocks": [["[TAG: True:cond_0 - (line 2713)]\n", "[Method END]\n"]]}
+{"location": ["Lcom/rjfun/cordova/ad/GenericAdPlugin;->onPause(Z)V"], "block": ["[Method START]\n", "[Branch: if-eqz v0, :cond_0 - (line 2709)]\n"], "real_child_block": ["[TAG: False:cond_0 - (line 2709)]\n"], "emu_child_blocks": [["[TAG: True:cond_0 - (line 2713)]\n", "[Method END]\n"]]}
