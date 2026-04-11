@@ -140,12 +140,19 @@ def gen_method_params_log(locals_num, params_list):
 		p_count += 1
 	return new_content
 
-def method_logger(smali_lines,smali_base_dir, target_API_graph_all, app_hash, cursor):
-	in_excluded_method = False	
+def method_logger(smali_lines, smali_base_dir, target_API_graph_all, app_hash, on_method=None):
+	"""Rewrite one .smali file's contents, returning the instrumented text.
+
+	``on_method`` is an optional callback ``(method_hash, method_sign) -> None``
+	fired once per patched method. Callers who need to persist the
+	hash -> signature mapping (e.g. into SQLite) supply a closure here;
+	pure library callers can omit it. This keeps the rewriting engine
+	free of any storage assumptions — see ApkSmith for the final shape.
+	"""
 	in_method_flag = False
 	output_flag = 1
 	class_name = smali_lines[0].split(' ')[-1].strip('\n')
-	if smali_lines[0].startswith('.class public interface abstract'):# 
+	if smali_lines[0].startswith('.class public interface abstract'):#
 		#這些裡面應該都是abstract method，可忽略
 		return ''.join(smali_lines)
 	current_method_signature = ''
@@ -164,7 +171,8 @@ def method_logger(smali_lines,smali_base_dir, target_API_graph_all, app_hash, cu
 			_splitted_identifiers = line.strip('\n').split(' ')
 			current_method_signature = f'{class_name}->' + _splitted_identifiers[-1]
 			method_hash = hash_sign(current_method_signature)
-			cursor.execute('INSERT OR IGNORE INTO method (method_hash, method_sign, app_hash) VALUES (?, ?, ?)', (method_hash, current_method_signature, app_hash))
+			if on_method is not None:
+				on_method(method_hash, current_method_signature)
     
 			locals_num = 0	
 			params_list = get_params_list(line, class_name)
@@ -279,7 +287,14 @@ def method_logger(smali_lines,smali_base_dir, target_API_graph_all, app_hash, cu
 
 	return new_content
 
-def walk_smali_dir(smali_base_dir, target_API_graph_all, app_hash, cursor, log_mode = True):#default mode: Logging
+def walk_smali_dir(smali_base_dir, target_API_graph_all, app_hash, on_method=None, log_mode=True):
+	"""Walk one smali root, rewriting every non-framework .smali in place.
+
+	``on_method`` is an optional ``(method_hash, method_sign) -> None``
+	callback passed straight through to :func:`method_logger`. Supply it
+	if you need to build up a hash -> signature index (SADroid stores
+	this in SQLite via a closure; other callers can store it wherever).
+	"""
 
 	walking_list = []
 	for d in os.listdir(smali_base_dir):
@@ -321,7 +336,7 @@ def walk_smali_dir(smali_base_dir, target_API_graph_all, app_hash, cursor, log_m
 				except Exception as e:
 					print(f"method_logger read error: e={e}, full_name={full_name}")
 					raise
-				new_content = method_logger(smali_lines, smali_base_dir, target_API_graph_all, app_hash, cursor)
+				new_content = method_logger(smali_lines, smali_base_dir, target_API_graph_all, app_hash, on_method)
 				# Rewrite atomically: open in 'w' so the file is truncated to
 				# the exact new length. The old 'r+' + seek(0) path did NOT
 				# truncate and would leave stale trailing bytes whenever the

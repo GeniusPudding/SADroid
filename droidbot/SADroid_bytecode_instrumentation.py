@@ -116,6 +116,17 @@ def methodlog_instrumentation(
     app_hash = hash_sign(app_name)
     cursor.execute('INSERT OR IGNORE INTO app (app_hash, app_name) VALUES (?, ?)', (app_hash, app_name))
 
+    # SADroid persists method_hash -> method_sign into its own SQLite DB.
+    # The rewriting engine in smali_utils does not know or care about that:
+    # it just fires this callback once per patched method. Keeping the
+    # persistence concern here (rather than inside the engine) is what
+    # lets ApkSmith reuse the engine without pulling in SQLite.
+    def record_method(method_hash, method_sign):
+        cursor.execute(
+            'INSERT OR IGNORE INTO method (method_hash, method_sign, app_hash) VALUES (?, ?, ?)',
+            (method_hash, method_sign, app_hash),
+        )
+
     apktool_dir = os.path.join(dirname, app_name)
 
     # 1. apktool decompile
@@ -130,7 +141,7 @@ def methodlog_instrumentation(
     smali_dirs = [subdir for subdir in os.listdir(apktool_dir) if subdir.startswith('smali')]
     for subdir in smali_dirs:
         smali_base_dir = os.path.join(apktool_dir, subdir)
-        walk_smali_dir(smali_base_dir, target_API_graph, app_hash, cursor)
+        walk_smali_dir(smali_base_dir, target_API_graph, app_hash, on_method=record_method)
     patch_log_file(os.path.join(apktool_dir, 'smali'))
 
     # 3. apk repackage -> zipalign -> sign
