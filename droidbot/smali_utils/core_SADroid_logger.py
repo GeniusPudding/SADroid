@@ -148,9 +148,8 @@ def method_logger(smali_lines,smali_base_dir, target_API_graph_all, app_hash, cu
 	if smali_lines[0].startswith('.class public interface abstract'):# 
 		#這些裡面應該都是abstract method，可忽略
 		return ''.join(smali_lines)
-	current_method_signature = '' 
+	current_method_signature = ''
 	method_hash = ''
-	has_method = False
 	new_content = ''
 	locals_num = 0
 	params_num = 0
@@ -278,8 +277,6 @@ def method_logger(smali_lines,smali_base_dir, target_API_graph_all, app_hash, cu
 		else:
 			output_flag = 1	
 
-	if not has_method:
-		return new_content
 	return new_content
 
 def walk_smali_dir(smali_base_dir, target_API_graph_all, app_hash, cursor, log_mode = True):#default mode: Logging

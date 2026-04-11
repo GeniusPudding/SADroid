@@ -74,38 +74,6 @@ def get_param_types(params_list,params_num):#params_num也可以用param_registe
 			_param_index += 1	
 	return param_types
 
-def get_invoke_range_regs(invoke_line, locals_num, register_case):#把range實際呼叫用的arguments所在的register抓出來 (考慮到已經被插一個locals在末端)
-	#print(f'invoke_line:{invoke_line}')
-	invoke_regs = invoke_line[invoke_line.index('{')+1:invoke_line.index('}')].split(' .. ')
-	actual_regs = []
-	start, end = invoke_regs[0], invoke_regs[1]
-	offset = 0 #如果是v-p這種需要搬動暫存器內容吧 range必須是連號
-	s_i, e_i = int(start[1:]), int(end[1:])	
-
-	if  start[0] == 'p' and  end[0] == 'p':#沒有offset
-		for i in range(s_i,e_i+1):
-			actual_regs.append('p'+str(i)) 
-                  
-	else:
-		locals_num -= (2 if register_case == 2 else 1) #扣掉offset算回原本的locals_num
-		if end[0] == 'v' and int(end[1:]) < locals_num: #v form且<locals num
-			for i in range(s_i,e_i+1):
-				actual_regs.append('v'+str(i)) 
-		else:
-			offset = 2 if register_case == 2 else 1
-			for i in range(s_i, locals_num):
-				actual_regs.append('v'+str(i))			
-			if end[0] == 'p':    
-				for i in range(e_i+1):	
-					actual_regs.append('p'+str(i))
-			else: # (end[0] == 'v' and int(end[1:]) >= locals_num):#剩下兩種都有可能因為加了locals而斷掉range
-				for i in range(locals_num+offset,  e_i+2):	
-					actual_regs.append('v'+str(i))   
-
-	# if offset > 0:
-	# 	input(f'actual_regs:{actual_regs}, offset:{offset},locals_num:{locals_num}')
-	return actual_regs, offset
-
 def get_invoke_range_regs_ver2(invoke_line, locals_num):#把range實際呼叫用的arguments所在的register抓出來 (考慮到已經被插一個locals在末端)
 	#print(f'invoke_line:{invoke_line}')
 	invoke_regs = invoke_line[invoke_line.index('{')+1:invoke_line.index('}')].split(' .. ')

@@ -53,40 +53,6 @@
     return-object v1    
 .end method
 
-.method public static getThreadID()V
-    .locals 3
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Thread;->getId()J
-
-    move-result-wide v0
-
-    invoke-virtual {v2, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    return-void
-.end method
-
-.method public static stringLog(Ljava/lang/String;)V
-    .locals 1
-    const-string v0, "SADroid"
-
-    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
 .method public static monitorLog(Ljava/lang/String;)V
     .locals 1
     const-string v0, "SADroid"

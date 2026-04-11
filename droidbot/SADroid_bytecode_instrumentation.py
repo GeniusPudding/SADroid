@@ -21,7 +21,7 @@ def patch_log_file(smali_base_dir):
     shutil.copyfile(os.path.join(os.path.dirname(__file__),'smali_utils','injections','logs','InlineLogs.smali'), os.path.join(inject_dir,'InlineLogs.smali'))
     return 
 
-def methodlog_instrumentation(target_apk_path, redecompile, target_API_graph, cursor, add_dummy_evasion = False):
+def methodlog_instrumentation(target_apk_path, redecompile, target_API_graph, cursor):
     print(f'testing_apk_path:{target_apk_path}')
     if not os.path.exists(target_apk_path):
         raise ValueError("APK does not exist.")
@@ -58,12 +58,6 @@ def methodlog_instrumentation(target_apk_path, redecompile, target_API_graph, cu
         #walk_target_dir(os.path.join(apktool_dir,subdir), graph)
     patch_log_file(os.path.join(apktool_dir,'smali'))
 
-    if add_dummy_evasion:
-        input('add_dummy_evasion')
-        evasion_instrumentation(target_apk_path,False, 'methodStartLog()V')
-    # except:   
-    #     print('test Failed to do instrumentation')
-    #     raise RuntimeError('Failed to do instrumentation')
     print('test repackage')
     #3.apk repackage
     try:
