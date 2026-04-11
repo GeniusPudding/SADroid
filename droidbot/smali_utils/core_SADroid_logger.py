@@ -316,19 +316,23 @@ def walk_smali_dir(smali_base_dir, target_API_graph_all, app_hash, cursor, log_m
 			full_name = os.path.join(os.path.abspath(walking_tuple[0]),file_name)
 			if log_mode:
 				try:
-					f = open(full_name,'r+', encoding='utf-8')
-					smali_lines = list(f)
-
-					f.seek(0)
-				except Exception as e:#這有必要嗎
-					input(f"method_logger Error: e:{e},full_name:{full_name}")
-					#input(f'smali_lines:{smali_lines}')
+					with open(full_name, 'r', encoding='utf-8') as f:
+						smali_lines = list(f)
+				except Exception as e:
+					print(f"method_logger read error: e={e}, full_name={full_name}")
+					raise
 				new_content = method_logger(smali_lines, smali_base_dir, target_API_graph_all, app_hash, cursor)
-				f.write(new_content)
-				f.close()
+				# Rewrite atomically: open in 'w' so the file is truncated to
+				# the exact new length. The old 'r+' + seek(0) path did NOT
+				# truncate and would leave stale trailing bytes whenever the
+				# rewritten content was shorter than the original (e.g. when
+				# method_logger bails early on locals_num > 255 and falls
+				# through without appending the usual tail).
+				with open(full_name, 'w', encoding='utf-8') as f:
+					f.write(new_content)
 			else:
-				f = open(full_name,'r', encoding='utf-8')
-				read_signs_set.update({get_invoke_sign(line)   for line in f.readlines() if line.startswith('    invoke-')})
+				with open(full_name, 'r', encoding='utf-8') as f:
+					read_signs_set.update({get_invoke_sign(line) for line in f if line.startswith('    invoke-')})
 
 	if not log_mode:
 		return read_signs_set	
