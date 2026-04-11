@@ -91,6 +91,7 @@ def methodlog_instrumentation(
     apktool_path=None,
     zipalign_path=None,
     apksigner_path=None,
+    extra_on_method=None,
 ):
     """Decompile a single APK, instrument every main-class method, repack and sign.
 
@@ -126,6 +127,8 @@ def methodlog_instrumentation(
             'INSERT OR IGNORE INTO method (method_hash, method_sign, app_hash) VALUES (?, ?, ?)',
             (method_hash, method_sign, app_hash),
         )
+        if extra_on_method is not None:
+            extra_on_method(method_hash, method_sign)
 
     apktool_dir = os.path.join(dirname, app_name)
 
