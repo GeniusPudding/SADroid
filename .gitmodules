@@ -1,0 +1,3 @@
+[submodule "droidbot/ApkSmith"]
+	path = droidbot/ApkSmith
+	url = git@github.com:GeniusPudding/ApkSmith.git

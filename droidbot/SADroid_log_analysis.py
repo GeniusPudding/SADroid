@@ -4,7 +4,9 @@ import json
 import sqlite3
 import re
 from droidbot.utils import get_available_devices
-from smali_utils.core_SADroid_logger import hash_sign
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), 'ApkSmith', 'src'))
+from apksmith.smali.parser import hash_sign  # noqa: E402
 from tqdm import tqdm
 from collections import defaultdict
 # with open(os.path.join('json', '.json'), 'r') as f:

@@ -1,181 +1,65 @@
-import os
-import shutil
+"""SADroid bytecode instrumentation driver — powered by ApkSmith.
+
+This is the SADroid-specific entry point that:
+1. Manages the SQLite DB for app/method hash lookups (SADroid's concern)
+2. Delegates the entire decompile/instrument/repack/sign pipeline to ApkSmith
+
+The heavy lifting (smali rewriting, tool discovery, subprocess management)
+now lives in the ApkSmith submodule. SADroid only supplies config + a
+callback that records method hashes into its own database.
+"""
+
 import json
+import os
 import sys
-import subprocess
-from time import process_time
 import sqlite3
+from pathlib import Path
+from time import process_time
 
 from tqdm import tqdm
-from smali_utils.core_SADroid_logger import walk_smali_dir, hash_sign
+
+# ApkSmith submodule — lives at droidbot/ApkSmith/src/apksmith
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'ApkSmith', 'src'))
+from apksmith import instrument_apk, InstrumentConfig  # noqa: E402
+from apksmith.smali.parser import hash_sign  # noqa: E402
 
 
-# --- external tool resolution ----------------------------------------------
-# apktool is a shell/batch wrapper; on Windows it is typically `apktool.bat`,
-# elsewhere plain `apktool`. Accept either so the pipeline works cross-platform
-# without requiring callers to know which one their PATH exposes.
+def sadroid_instrument(target_apk_path, target_API_graph, cursor):
+    """Instrument a single APK using ApkSmith, recording metadata in SQLite.
 
-def _find_tool(names):
-    for name in names:
-        found = shutil.which(name)
-        if found:
-            return found
-    return None
-
-
-def resolve_apktool(override=None):
-    if override:
-        return override
-    found = _find_tool(["apktool", "apktool.bat"])
-    if not found:
-        raise RuntimeError("Could not find 'apktool' or 'apktool.bat' on PATH.")
-    return found
-
-
-def resolve_zipalign(override=None):
-    if override:
-        return override
-    found = _find_tool(["zipalign"])
-    if not found:
-        raise RuntimeError("Could not find 'zipalign' on PATH (ships with Android SDK build-tools).")
-    return found
-
-
-def resolve_apksigner(override=None):
-    if override:
-        return override
-    found = _find_tool(["apksigner", "apksigner.bat"])
-    if not found:
-        raise RuntimeError("Could not find 'apksigner' on PATH (ships with Android SDK build-tools).")
-    return found
-
-
-def _run(cmd, label):
-    """Run a subprocess list-argv, capturing stdout/stderr for diagnostics."""
-    print(f"[{label}] $ {' '.join(cmd)}")
-    try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, check=True)
-    except FileNotFoundError as e:
-        raise RuntimeError(f"{label} failed: executable not found ({e.filename})") from e
-    except subprocess.CalledProcessError as e:
-        tail_out = (e.stdout or "").strip()[-2000:]
-        tail_err = (e.stderr or "").strip()[-2000:]
-        raise RuntimeError(
-            f"{label} failed with exit code {e.returncode}\n--- stdout ---\n{tail_out}\n--- stderr ---\n{tail_err}"
-        ) from e
-    if proc.stdout:
-        print(proc.stdout.rstrip())
-    return proc
-
-
-def patch_log_file(smali_base_dir):
-    inject_dir = os.path.join(smali_base_dir, 'SADroid')
-    if not os.path.isdir(inject_dir):
-        os.mkdir(inject_dir)
-    shutil.copyfile(
-        os.path.join(os.path.dirname(__file__), 'smali_utils', 'injections', 'logs', 'InlineLogs.smali'),
-        os.path.join(inject_dir, 'InlineLogs.smali'),
+    This replaces the old ``methodlog_instrumentation`` — the entire tool
+    chain (apktool, zipalign, apksigner) is now managed by ApkSmith.
+    """
+    apk_path = Path(target_apk_path)
+    app_hash = hash_sign(apk_path.stem)
+    cursor.execute(
+        'INSERT OR IGNORE INTO app (app_hash, app_name) VALUES (?, ?)',
+        (app_hash, apk_path.stem),
     )
 
-
-def methodlog_instrumentation(
-    target_apk_path,
-    redecompile,
-    target_API_graph,
-    cursor,
-    *,
-    keystore_path=None,
-    keystore_pass=None,
-    key_alias=None,
-    key_pass=None,
-    apktool_path=None,
-    zipalign_path=None,
-    apksigner_path=None,
-    extra_on_method=None,
-):
-    """Decompile a single APK, instrument every main-class method, repack and sign.
-
-    Tool paths default to whatever is on PATH (apktool, zipalign, apksigner).
-    Signing credentials default to the research keystore under ``res/1.keystore``
-    with password ``s35gj6`` to preserve current SADroid behaviour, but any of
-    those can be overridden by the caller.
-    """
-    print(f'testing_apk_path:{target_apk_path}')
-    if not os.path.exists(target_apk_path):
-        raise ValueError("APK does not exist.")
-
-    apktool = resolve_apktool(apktool_path)
-    zipalign = resolve_zipalign(zipalign_path)
-    apksigner = resolve_apksigner(apksigner_path)
-
-    ks_path = keystore_path if keystore_path is not None else os.path.join(os.getcwd(), 'res', '1.keystore')
-    ks_pass = keystore_pass if keystore_pass is not None else 's35gj6'
-    k_pass = key_pass if key_pass is not None else ks_pass
-
-    dirname, basename = os.path.split(target_apk_path)
-    app_name = os.path.splitext(basename)[0]
-    app_hash = hash_sign(app_name)
-    cursor.execute('INSERT OR IGNORE INTO app (app_hash, app_name) VALUES (?, ?)', (app_hash, app_name))
-
-    # SADroid persists method_hash -> method_sign into its own SQLite DB.
-    # The rewriting engine in smali_utils does not know or care about that:
-    # it just fires this callback once per patched method. Keeping the
-    # persistence concern here (rather than inside the engine) is what
-    # lets ApkSmith reuse the engine without pulling in SQLite.
     def record_method(method_hash, method_sign):
         cursor.execute(
             'INSERT OR IGNORE INTO method (method_hash, method_sign, app_hash) VALUES (?, ?, ?)',
             (method_hash, method_sign, app_hash),
         )
-        if extra_on_method is not None:
-            extra_on_method(method_hash, method_sign)
 
-    apktool_dir = os.path.join(dirname, app_name)
+    config = InstrumentConfig(
+        keystore=Path(os.path.join(os.getcwd(), 'res', '1.keystore')),
+        keystore_pass='s35gj6',
+        target_api_graph=target_API_graph,
+        log_tag='SADroid',
+        on_method=record_method,
+    )
 
-    # 1. apktool decompile
-    if redecompile:
-        _run(
-            [apktool, '-rf', 'd', '--only-main-classes', target_apk_path, '-o', apktool_dir],
-            label='apktool d',
-        )
+    result = instrument_apk(
+        apk_path=apk_path,
+        output_dir=apk_path.parent,
+        config=config,
+    )
 
-    # 2. bytecode instrumentation
-    print('bytecode instrumentation')
-    smali_dirs = [subdir for subdir in os.listdir(apktool_dir) if subdir.startswith('smali')]
-    for subdir in smali_dirs:
-        smali_base_dir = os.path.join(apktool_dir, subdir)
-        walk_smali_dir(smali_base_dir, target_API_graph, app_hash, on_method=record_method)
-    patch_log_file(os.path.join(apktool_dir, 'smali'))
-
-    # 3. apk repackage -> zipalign -> sign
-    print('test repackage')
-    try:
-        _run([apktool, 'b', apktool_dir], label='apktool b')
-
-        build_path = os.path.join(apktool_dir, 'dist', app_name + '.apk')
-        build_path2 = os.path.join(apktool_dir, 'dist', app_name + '_2.apk')
-        repackaged_apk_path = os.path.join(dirname, 'repacked_' + app_name + '.apk')
-
-        _run([zipalign, '-f', '-v', '4', build_path, build_path2], label='zipalign')
-
-        sign_cmd = [
-            apksigner, 'sign',
-            '--ks', ks_path,
-            '--ks-pass', 'pass:' + ks_pass,
-            '--key-pass', 'pass:' + k_pass,
-            '--out', repackaged_apk_path,
-        ]
-        if key_alias:
-            sign_cmd += ['--ks-key-alias', key_alias]
-        sign_cmd.append(build_path2)
-        _run(sign_cmd, label='apksigner')
-    except RuntimeError:
-        raise
-    except Exception as e:
-        raise RuntimeError(f'Failed to repackage: {e}') from e
-
-    print(f'methodlog_instrumentation:{repackaged_apk_path}')
-    return repackaged_apk_path
+    print(f'instrumentation done: {result.repacked_apk}')
+    print(f'  methods patched: {result.stats.methods_patched}')
+    return str(result.repacked_apk)
 
 
 if __name__ == "__main__":
@@ -188,23 +72,24 @@ if __name__ == "__main__":
 
     with open('jsons/target_API_graph_all.json', 'r') as f:
         target_API_graph = json.load(f)
+
     data_path = sys.argv[1]
-    if data_path[-4:] == '.apk':
-        repackaged_apk_path = methodlog_instrumentation(data_path, True, target_API_graph, c)
+
+    if data_path.endswith('.apk'):
+        repackaged_apk_path = sadroid_instrument(data_path, target_API_graph, c)
         print(f'Instrumentation of {data_path} finished.')
         conn.commit()
         conn.close()
         sys.exit(0)
 
-    dd = os.listdir(data_path)
-    dataset = [a for a in dd if a[-4:] == '.apk' and not a.startswith('repacked_')]
+    dataset = [a for a in os.listdir(data_path) if a.endswith('.apk') and not a.startswith('repacked_')]
 
     failed_repacked = []
     mean = 0
     for a in tqdm(dataset):
         t1_start = process_time()
         try:
-            repackaged_apk_path = methodlog_instrumentation(os.path.join(data_path, a), True, target_API_graph, c)
+            repackaged_apk_path = sadroid_instrument(os.path.join(data_path, a), target_API_graph, c)
         except Exception as e:
             print(f'Analyzing {a} failed, error:{e}')
             failed_repacked.append(a)
