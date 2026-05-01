@@ -18,10 +18,9 @@ from time import process_time
 
 from tqdm import tqdm
 
-# ApkSmith submodule — lives at droidbot/ApkSmith/src/apksmith
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'ApkSmith', 'src'))
-from apksmith import instrument_apk, InstrumentConfig  # noqa: E402
-from apksmith.smali.parser import hash_sign  # noqa: E402
+# ApkSmith — installed via `pip install -e ApkSmith/` from SADroid root
+from apksmith import instrument_apk, InstrumentConfig
+from apksmith.smali.parser import hash_sign
 
 
 def sadroid_instrument(target_apk_path, target_API_graph, cursor):

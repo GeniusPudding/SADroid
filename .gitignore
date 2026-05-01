@@ -3,4 +3,5 @@ droidbot/output/*
 droidbot/logcat/*
 droidbot/dcfg/*
 droidbot/dcfg.zip
-droidbot/logcat.zip
+droidbot/logcat.zip**/__pycache__/
+**/__pycache__/
